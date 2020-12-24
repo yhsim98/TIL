@@ -51,3 +51,20 @@ checkbox는 다중 선택을 할 수 있다.
     </select>
 
 여러 option중 하나를 선택하는 경우 select태그를 사용
+
+
+## textarea 태그 
+
+    <textarea></textarea>
+
+많은 입력을 받을 때 사용하는 태그 
+
+
+## button 태그
+
+    <button type=""></button>
+
+type을 꼭 명시해야 한다.
+type에는 button, submit, reset
+submit은 폼을 서버에 전달하는 경우,
+reset은 작성한 폼을 초기화하는 경우 사용한다. 
