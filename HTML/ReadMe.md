@@ -5,16 +5,17 @@ HTML은 모든 웹페이지의 뼈대이고 이런 HTML은 어떻게 의미구�
 
 
 ## HTML 구조
-<!DOCTYPE html>
-<html> 
-    <head></head>
-    <body></body>
-</html> 
 
-<!DOCTYPE html>으로 html5 버전을 사용한다고 브라우저에 선언해야 한다. 
+    <!DOCTYPE html>
+    <html> 
+        <head></head>
+        <body></body>
+    </html> 
 
-<html> 루트 태그인 html문서를 작성
+    <!DOCTYPE html>으로 html5 버전을 사용한다고 브라우저에 선언해야 한다. 
 
-<head> 문서에 관한 메타 데이터를 head안에 선언해 준다.
+    <html> 루트 태그
 
-<body> 문서의 내용을 작성
+    <head> 문서에 관한 메타 데이터를 head안에 선언해 준다.
+
+    <body> 문서의 내용을 작성해 준다.
