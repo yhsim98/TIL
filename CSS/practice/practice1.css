@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+
+.box{
+    width: 440px;
+    height: 440px;
+    padding: 40px 50px;
+    background-color: rgb(31, 31, 204);
+    color:white
+}
