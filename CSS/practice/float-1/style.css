@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: -0.02em;
+    background-color: black;
+}
+  
+  a {
+    font-size: 18px;
+    line-height: 20px;
+    color: #8492a6;
+    text-decoration: none;
+  }
+  
+  /* ▼ WHERE YOUR CODE BEGINS */
+  .tab-menu {
+    border-bottom: 1px solid gray;    
+    list-style-type: none;
+    padding-left: 0px;
+    background-color: white;
+    max-width: 500px;
+}
+
+    .tab-menu::after{
+        content: "";
+        display: block;
+        clear: both;
+        
+    }    
+
+    .tab-menu-item{
+        float: left;
+        margin-right: 16px;
+    }
+
+    .tab-menu-item a{
+        display: block;
+        padding: 16px 20px;
+    }
+
+    .tab-menu-item.active{
+        border-bottom: 2px solid blue;
+    }
+
+    .tab-menu-item.active a{
+        color: blue;
+        font-weight: 500;
+    }
+
+
+    
+
+
+  

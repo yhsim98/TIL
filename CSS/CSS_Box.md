@@ -1,7 +1,7 @@
 # Box
 
 
-## Box Model이란?
+## <strong>Box Model이란?</strong>
 position, margin, border, padding, content 순으로 되어있는 모델
 html의 태그들은 모두 이 박스 모델 가지고 있다. 
 position은 없을 수도 있다.
@@ -84,7 +84,7 @@ box-sizing값은 보통 content-box기준으로 잡게 된다. 그래서 box-siz
 none, block, inline, inline-block이 있다.
 
 
-## block이란?
+## <strong>block이란?</strong>
 div 태그, p 태그, h 태그, li 태그 등이 이에 해당된다. 
 
 ### block의 특징
@@ -101,14 +101,69 @@ div 태그, p 태그, h 태그, li 태그 등이 이에 해당된다.
 부모의 height에 별도의 height값을 지정하지 않은 경우, 자식 요소의 height의 합이 부모의 height가 된다. 
 
 
-## Inline이란?
+
+## <strong>Inline이란?</strong>
 span 태그, b 태그, i 태그, a 태그 등이 이에 해당된다. 
 
 
 ### inline 특징
 inline박스의 경우 
 block과 달리 줄바꿈이 되지 않고, 위 아래줄에 영향을 주는 
-
 width, height, padding-top, padding-bottom, border-top, border-bottom, margin-top, margin-bottom을 쓸 수 없다 
 볼드, 이탤릭, 색상 등 글자나 문장에 효과를 주기 위해 주로 사용된다
 문서에서 특정 부분에 색상을 입힌다고 다음에 나오는 글이 줄바꿈 되지 않듯이 inline요소 뒤에 나오는 태그 또한 줄바꿈 되지 않고 바로 오른쪽에 표시된다.
+
+
+## <strong>inline-block이란?</strong>
+inline이 세로 배치가 힘들고, block이 가로 배치가 힘든 점을 보완한 display속성
+
+    display: inline-block;
+
+display를 inline-block으로 설정해 주면 따로 줄바꿈이 되지 않고 top, bottom을 설정도 가능하다 
+
+
+
+## <strong>float이란?</strong>
+block요소들을 가로배치하기 위해 사용하는 요소
+
+
+### flaot 특징
+float를 사용하면 부모는 빈공간으로 인식하게 된다
+height를 계산할 경우 float를 사용하면 없는 것으로 취급되어 부모의 height를 계산할 때도 제외하고 계산한다
+
+float를 사용하면 inline이던 inline block이던 block으로 바뀌게 된다.
+
+이렇게 block로 바뀌어도 block의 width의 특징을 따르지는 않는다
+남는 공간을 자동으로 margin으로 채우지 않는다
+
+텍스트나 이미지같은 inline 요소들은 float를 인식해서 정렬되어 레이아웃이 박살난다
+
+
+### overflow: hidden;
+이 속성을 주면 부모가 인식할 수 있게 된다. 
+
+
+### clearfix
+float로 인하여 망가진 layout을 고치기 위한 속성
+left, right, both로 나뉘는데
+left는 float-left를 무시, right는 float-right를 무시, both는 둘 다 무시해준다 
+이 속성을 주면 float하지 않은 요소가 float을 인식할 수 있게 된다
+display: block인 것만 사용 가능하다
+
+
+### Pseudo Element
+실제 html에는 존재하지 않는 가상요소
+각 요소당 2개씩 만들 수 있다
+content는 반드시 작성해야 한다
+
+    .pseudo::before{
+        content: "";
+    }
+    .pseudo::after{
+        content: "";
+    }
+
+이 요소에 clear속성을 줘서 float에서 무너진 layout을 고치면 된다
+
+
+
