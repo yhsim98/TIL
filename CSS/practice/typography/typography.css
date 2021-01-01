@@ -1,0 +1,95 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -0.015em;
+}
+
+/* font size */
+
+.fs-tiny{
+    font-size: 12px;
+    line-height: 1.3333333;
+}
+
+.fs-small{
+    font-size: 14px;
+    line-height: 1.55555555;
+}
+
+.fs-base{
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.fs-medium{
+    font-size: 18px;
+    line-height: 1.55555555;
+}
+
+.fs-large{
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.fs-H2{
+    font-size: 28px;
+    line-height: 1.4286;
+}
+
+
+.fs-H1{
+    font-size: 34px;
+    line-height: 1.41176;
+}
+
+/* Font Weight */
+
+.fw-light{
+    font-weight: 300;
+}
+
+.fw-regular{
+    font-weight: 400;
+}
+
+.fw-medium{
+    font-weight: 500;
+}
+
+.fw-bold{
+    font-weight: 700;
+}
+
+/* Font Color */
+
+.text-dark {
+    color: 1F2D3D, 100%;
+}
+
+.text-primary {
+    color: 3C4858, 100%
+}
+
+.text-secondary {
+    color: 8492A6, 100%;
+}
+
+.text-tertiary {
+    color: C0CCDA, 100%;
+}
+
+.text-white {
+    color: FFFFFF, 100%;
+}
+
+.text-success {
+    color: 13CE66, 100%;
+}
+
+.text-error {
+    color: FF5216, 100%;
+}
+
+.text-info {
+    color: 009EEB, 100%
+}
+

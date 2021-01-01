@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+body{
+    background-color: greenyellow;
+    font-family: 'Poppins', sans-serif;
+}
+
+.like-button {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+.card{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 840px;
+    padding: 24px;
+    background-color: white;
+    display: flex;
+}  
+
+.card-image{
+    background-image: url('https://github.com/rohjs/bugless-101/blob/master/css-basic/background/assets/img-house.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 199px;
+    width: 312px;
+    position: relative;
+    border-radius: 6px;
+    margin-right: 24px;
+}  
+
+.like-button{
+    background-image: url('https://raw.githubusercontent.com/rohjs/bugless-101/cc64c9b6e3b2b5a230bd0b0507c2e2fe9ec0a2e5/css-basic/background/assets/icon-favorite.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100px;
+    border: 0px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+.card-content{
+    width: 100%;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.plus-badge{
+    border-radius: 4px;
+    background-color: #92174D;
+    color: white;
+    padding: 1px 8px;
+    font-size: 14px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.property-type span{
+    color: #7D858F;
+
+}
+
+.property-type{
+    margin-bottom: 8px;
+}
+
+.property-rate span{
+    color: #7D858F;
+}
+
+.card-title{
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+.sr-only{
+    display: flex;
+    color: #7D858F;
+}
+
+.card-detail dd{
+    margin-left: 0;
+}
+
+.card-detail span{
+    color: #7D858F;
+    font-size: 14px;
+}
+
+
