@@ -58,7 +58,8 @@ capitalize는 모든 단어의 가장 앞에 있는 알파벳만 대문자로 �
 
 ## Webfont
 만약 웹사이트의 제작에 사용한 폰트가 사용자의 컴퓨터에 없는 경우를 대비할 때 사용된다
-html에 직접 import하거나 css에 import할수 도 있다
+html의 head에 직접 import해줘야 한다 
+css에서는 @font-face로 사용하면 된다
 
     @font-face{
         font-family: ""; //사용할 서체의 이름을 정하기
