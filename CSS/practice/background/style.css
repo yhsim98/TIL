@@ -9,6 +9,15 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.sr-only{
+    position: absolute;
+    z-index: -100;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
 .like-button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
@@ -28,8 +37,9 @@ body{
     background-image: url('https://github.com/rohjs/bugless-101/blob/master/css-basic/background/assets/img-house.jpg?raw=true');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 199px;
-    width: 312px;
+    width: 300px;
     position: relative;
     border-radius: 6px;
     margin-right: 24px;
@@ -42,19 +52,21 @@ body{
     background-position: center center;
     width: 36px;
     height: 36px;
-    border-radius: 100px;
+    border-radius: 50%;
     border: 0px;
     position: absolute;
     top: 12px;
     left: 12px;
+    cursor: pointer;
 }
 
 .card-content{
-    width: 100%;
+    flex-grow: 1;
 }
 .card-header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .plus-badge{
@@ -63,40 +75,73 @@ body{
     color: white;
     padding: 1px 8px;
     font-size: 14px;
+    line-height: 1.42857;
+    font-weight: 500;
     margin-right: 8px;
     margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 .property-type span{
     color: #7D858F;
-
+    font-size: 16px;
+    line-height: 1.25;
 }
 
 .property-type{
     margin-bottom: 8px;
 }
 
+.property-rate{
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 400;
+}
+
+.property-rate strong{
+    font-weight: 400;    
+}
+
 .property-rate span{
     color: #7D858F;
 }
 
+.property-rate::before{
+    content: '';
+    position: relative;
+    top: 3.5px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('https://raw.githubusercontent.com/rohjs/bugless-101/cc64c9b6e3b2b5a230bd0b0507c2e2fe9ec0a2e5/css-basic/background/assets/icon-star.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .card-title{
     margin-bottom: 16px;
-    margin-top: 0px;
+    font-size: 20px;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
-.sr-only{
-    display: flex;
-    color: #7D858F;
-}
-
-.card-detail dd{
-    margin-left: 0;
-}
-
-.card-detail span{
+.card-detail dd span{
+    font-size: 14px;
+    line-height: 1.1428571429;
     color: #7D858F;
     font-size: 14px;
 }
+
+.card-detail dd span::after{
+    content: '•';
+    margin:0 8px;
+}
+
+.card-detail dd span:last-child::after{
+    content: '';
+    margin: 0;
+}
+
 
 
