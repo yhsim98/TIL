@@ -12,7 +12,7 @@
     * 알고리즘의 시간 복잡도 분석
     * 알고리즘의 정당성 증명
 * 알고리즘 설계 패러다임
-    * 무식하게 풀기
+    * [무식하게 풀기](https://github.com/yonghyeonsim/TIL/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%EC%A0%84%EB%9E%B5/%EB%AC%B4%EC%8B%9D%ED%95%98%EA%B2%8C%20%ED%92%80%EA%B8%B0.md)
     * 분할 정복
     * 동적 계획법
     * 동적 계획법 테크닉
