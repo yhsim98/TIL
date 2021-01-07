@@ -39,5 +39,5 @@ Object-relational mapping의 약자이다. 한국어로 표현하자면 객체�
 
 
 
-# 출처
-https://gmlwjd9405.github.io/2019/02/01/orm.html
+# References
+http://www.incodom.kr/ORM#h_702209f3f35878a32ee91352ddc6bbe7
