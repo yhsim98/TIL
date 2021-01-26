@@ -39,3 +39,24 @@ Setter 메서드를 이용한 의존성 삽입, 의존성을 입력 받는 sette
 구현클래스에 관한 정보는 XML(설정파일)에 기술해 놓는다. 그러면 컨테이너가 설정파일 정보를 읽어 구현 객체를 생성해 주고 클래스에 의존성을 주입해 준다.
 
 # Spring DI 컨테이너의 개념 
+Spring DI 컨테이너가 관리하는 객체를 빈(bean)이라고 하고, 이 빈들을 관리한다는 의미로 컨테이너를 빈 팩토리(Bean Factory)라고 부른다.
+
+* 객체의 생성과 객체 사이의 런타임 관계를 DI관점에서 볼 때는 컨테이너를 BeanFactory라고 한다
+
+* Bean Factory에 여러 가지 컨테이너 기능을 추가하여 어플리케이션 컨텍스 라고 부른다
+
+실제로 Spring에는 Bean Factory 인터페이스와 Application Context라는 인터페이스가 있다.
+
+## BeanFactory
+* Bean을 등록, 생성, 조회, 반환 관리한다
+* 보통은 Bean Factory를 바로 사용하지 않고, 이를 확장한 Application Context를 사용한다.
+* getBean() 메서드가 정의되어 있다.
+
+## Application Context
+* Bean을 등록, 생성, 조회, 반환 관리하는 기능은 BeanFactory와 같다.
+* Spring의 각종 부가 서비스를 추가로 제공한다.
+* Spring이 제공하는 Application Context 구현 클래스가 여러 가지 종류가 있다.
+* 궁극적으로는 Application Context가 DI 컨테이너 역할을 한다.
+
+
+

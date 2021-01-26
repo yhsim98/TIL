@@ -13,6 +13,7 @@ Ioc가 아닌 경우 개발자가 직접 new 등을 사용해서 객체를 생�
 * 개발자들이 직접 POJO를 생성할 수 있지만 컨테이너에게 맡긴다
 
 Spring 컨테이너가 관리하는 객체를 bean 객체라 한다
+
 # IoC의 분류
 IoC는 DL(Dependency Lookup)과 DI(Dependency Injection)로 분류된다  
 DL은 특정 컨테이너에 종속되는 api를 쓰기 때문에 주로 DI를 쓴다
