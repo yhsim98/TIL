@@ -52,11 +52,30 @@ Spring DI 컨테이너가 관리하는 객체를 빈(bean)이라고 하고, 이 
 * 보통은 Bean Factory를 바로 사용하지 않고, 이를 확장한 Application Context를 사용한다.
 * getBean() 메서드가 정의되어 있다.
 
-## Application Context
+## ApplicationContext
 * Bean을 등록, 생성, 조회, 반환 관리하는 기능은 BeanFactory와 같다.
 * Spring의 각종 부가 서비스를 추가로 제공한다.
 * Spring이 제공하는 Application Context 구현 클래스가 여러 가지 종류가 있다.
 * 궁극적으로는 Application Context가 DI 컨테이너 역할을 한다.
 
+# Bean 의존관계 설정 방법
 
+## property 태그
+Setter 메서드를 통해 의존관계가 있는 Bean을 주입하려면 <property> 태그를 사용할 수 있다.
 
+* ref 속성은 사용하면 Bean 이름을 이용해 주입할 Bean을 찾는다
+* value 속성은 단순 값 또는 Bean이 아닌 객체를 주입할 때 사용한다
+
+## constructor-arg 태그
+Constructor를 통해 의존관계가 있는 Bean을 주입하려면 constructor-arg 태그를 사용할 수 있다.
+
+Constructor 주입방식은 생성자의 피라미터를 이용하기 때문에 한번에 여러 개의 객체를 주입할 수 있다.
+
+    <bean id="hello" class="">
+        <constructor-arg index="0" value=""/> //순서대로
+        <constructor-arg index="1" ref=""/>  
+    </bean>
+    <bean id="hello" class="">
+        <constructor-arg name="name" value=""/> //순서대로
+        <constructor-arg name="printer" ref=""/>  
+    </bean>
