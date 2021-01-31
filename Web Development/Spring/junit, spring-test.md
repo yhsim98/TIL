@@ -45,6 +45,7 @@ Junit은 각각의 테스트가 서로 영향을 주지 않고 독립적으로 �
 ## 그 외
 http://junit.sourceforge.net/javadoc/org/junit/Assert.html
 
+
 # Spring-test
 junit F/W를 확장해서 만든, 스프링 F/W에서 제공하는 통합 테스트 및 스프링 MVC 통합 테스트. Java 코드에 대해서 스프링 컨테이너 생성, 트랜잭션, DB와 연동 관리를 지원하며 웹 관련 Mock 테스트를 위한 객체를 지원한다.
 
