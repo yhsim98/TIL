@@ -49,7 +49,7 @@
 * Front Controller는 클라이언트가 보낸 요청을 받아서 공통적인 작업을 먼저 수행한다
 * Front Controller는 적절한 세부 Controller에게 작업을 위임한다
 * 각각의 애플리케이션 Controller는 클라이언트에게 보낼 뷰를 선택해서 최종 결과를 생성하는 작업을 한다
-* Front Controller패턴은 인증이나 권한 체크처럼 모든 요청에 대하여 공통적으로 처리해야 하는 로직이 있을 경우 전체적으로 클라이언트의 요청을 중앙 집중저긍로 처리하고자 할 경우에 사용한다
+* Front Controller패턴은 인증이나 권한 체크처럼 모든 요청에 대하여 공통적으로 처리해야 하는 로직이 있을 경우 전체적으로 클라이언트의 요청을 중앙 집중적으로 처리하고자 할 경우에 사용한다
 
 # Spring MVC의 특징
 * Spring은 DI나 AOP같은 기능뿐만 아니라, 서블릿 기반의 웹 개발을 위한 MVC 프레임워크를 제공한다
@@ -105,12 +105,32 @@ suffix : Controller가 리턴한 view 이름 뒤에 붙은 확장자
 
 Controller가 "hello"를 리턴했다면 위 예시의 경우 "/hello.jsp"가 된다.
 
+# Controller 핵심 어노테이션
+
+## @RequestParam 
+Http 요청에 포함된 파라미터 참조 시 사용된다.
+
+## @ModelAttribute
+HTTP 요청에 포함된 파라미터를 모델 객체로 바인딩한다.
+
+## @PathVariable
+파라미터를 URL 형식으로 받을 수 있드록 해준다.
+
+## @ExceptionHandler 
+컨트롤러의 메서드에 설정하여 컨트롤러의 메서드에서 예외가 발생했을 때 예외 처리를 할 수 있다.
+
+예외가 발생했을 때, 예외 Type과 Message를 보여주는 JSP페이지를 작성해야 한다.
 
 # Model 클래스
 View에 데이터를 전달한다
 * Controller에서 Service를 호출한 결과를 받아서 view에게 전달하기 위해, 전달받은 결과를 Model 객체에 저장한다
 * Model addAttribute(string name, object value) 
     * value객체를 name이름으로 저장하고, view코드에서는 name으로 지정한 이름을 통해서 value를 사용한다
+
+# ModelAndView 클래스
+* Controller에서 Service를 호출한 결과를 받아서 View에게 전달하기 위해, 전달받은 데이터와 화면정보를 ModelAndView 객체에 저장한다
+* ModelAndView 클래스의 생성자나, setViewNmae() 메서드를 이용해서 View 이름을 지정할 수 있다
+* addObject(String name, Object value) 메서드를 이용해 View에 전달할 데이터를 저장할 수 있다
 
 # Spring MVC의 주요 구성 요소의 요청 처리 과정(2)
 1. 클라이언트의 요청이 DispacherServlet에게 전달된다
