@@ -1,10 +1,10 @@
-# DAO란?
+# DAO 패턴
 Data Access Object의 약자, repository package
 * 실제로 DB에 접근하는 객체다
     * Persistence Layer(DB에 data를 CRUD하는 계층)이다
 * service와 DB를 연결하는 고리의 역할을 한다
-
-
+* 데이터 엑세스 계층은 DAO 패턴을 적용하여 **비즈니스 로직과 데이터 액세스 로직을 분리**하는 것이 원칙이다
+* DAO 패턴은 서비스 계층에 영향을 주지 않고 데이터 엑세스 기술을 변경할 수 있다는 장점이 있다
 
 # DTO란?
 Data Transfer Object의 약자
@@ -37,5 +37,5 @@ Data Transfer Object의 약자
 * Entity 클래스와 DTO는 유사한 형태이지만 분리되어야 한다
     * view(web) Layer과 DB Layer의 역할을 철저하게 분리하기 위해서이다
     * Entitiy 클래스를 Request / Response 클래스로 사용해서는 안된다
-    * Entity 클래스는 *데이터베이스와 맞닿은 핵심 클래스*로써 Entity 클래스를 기준으로 테이블이 생성되고, 스키마가 변경된다
+    * Entity 클래스는 **데이터베이스와 맞닿은 핵심 클래스**로써 Entity 클래스를 기준으로 테이블이 생성되고, 스키마가 변경된다
     * Entity 클래스를 기준으로 많은 서비스나 비즈니스 로직들이 동작한다 하지만 Request와 Response용 Dto는 View를 위한 클래스라 자주 변경이 필요한데, 이를 위해 테이블과 연결된 Entity를 수정하는 것은 너무 큰 손해이다

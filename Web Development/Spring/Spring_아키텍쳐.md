@@ -51,5 +51,29 @@ Domain에서 비즈니스 처리를 담당하게 하는 것
 Service Layer에서 비즈니스 로직을 처리하게 되면 모든 로직이 서비스 클래스 내부에서 처리되어 서비스 계층이 무의미하며, 객체란 단순히 데이터 덩어리의 역할만 하게 된다
 도메인에서 **각자의 처리**를 하고 서비스에서는 **트랜젝션과 도메인 간의 순서**만 보장해 주면 된다
 
+
+# 클래스 역할
+
+## 프레젠테이션 계층 
+### UserController 클래스
+* UI 계층과 서비스 계층을 연결하는 역할을 하는 클래스
+* JSP에서 UserController를 통해서 서비스 계층의 UserService를 사용하게 된다
+* 서비스 계층의 UserService 인터페이스를 구현하나 객체를 IoC컨테이너가 주입해 준다
+
+## 서비스 계층
+### UserService 인터페이스
+* 서비스 계층에 속한 상위 인터페이스
+### UserServicelmpl 클래스
+* UserService 인테페이스를 구현한 클래스
+* 복잡한 업무 로직이 있을 경우에는 이 클래스에서 업무 로직을 구현하면 된다 
+* repository 계층의 UserDao 인터페이스를 구현한 객체를 IoC컨테이너가 주입해 준다
+
+## 데이터 엑세스 계층
+### UserDao 인터페이스
+* 데이터 엑세스 계층에 속한 상위 인터페이스
+### UserDaolmplJDBC 클래스
+* UserDao 인터페이스를 구현한 클래스로 이 클래스에서는 데이터 액세스 로직을 구현하면 된다
+* SpringJDBC를 사용하는 경우에는 DataSource를 IoC컨테이너가 주입해 준다
+* MyBatis를 사용하는 경우에는 SqlSession을 IoC컨테이너가 주입해 준다
 ### References
 [스프링 부트와 AWS로 혼자 구현하는 웹서비스](http://www.yes24.com/Product/Goods/83849117)

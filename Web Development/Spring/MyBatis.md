@@ -59,3 +59,10 @@ Mapper 인터페이스는 Mapping 파일에 기재된 SQL을 호출하기 위한
 * 네임스페이스 속성에는 패키지를 포함한 Mapper 인터페이스 이름
 * SQL ID에는 매핑하는 메서드 이름을 지정해야 한다
 
+# MapperScannerConfigurer
+여러개의 Mapper 인터페이스가 있을 때 사용한다
+
+* MapperFactoryBean을 이용해 Mapper 인터페이스를 등록할 때 Mapper 인터페이스의 개수가 많아지게 되면 일일이 정의하는 데 시간이 많이 걸린다
+* Mapper 인터페이스의 수가 많아지면 MapperScannerConfigurer를 이용하여 Mapper 인터페이스의 객체를 한 번에 등록하는 것이 편리하다
+* MapperScannerConfigurer를 이용하면 지정한 패키지 아래 모든 인터페이스가 Mapper 인터페이스로 간주되어 Mapper 인터페이스의 객체가 DI 컨테이너에 등록된다
+
