@@ -1,5 +1,5 @@
 # MyBatis
-자바 오브젝트와 SQL문 사이의 자동 Mapping 기능을 지원하는 ORM 프레임워크
+자바 오브젝트와 SQL문 사이의 자동 Mapping 기능을 지원하는 프레임워크
 
 * SQL을 별도의 파일로 분리해서 관리하게 해주며, 객체-SQL 사이의 파라미터 Mapping 작업을 자동으로 해준다
 * MyBatis는 Hibernate나 JPA(Java Persistence Api)처럼 새로운 DB 프로그래밍 패러다임을 익혀야 하는 부담이 없이, 개발자가 익숙한 SQL을 그대로 이용하면서 JDBC 코드 작성의 불편함도 제거해주고, 도메인 객체나 VO 객체를 중심으로 개발이 가능하다는 장점이 있다
