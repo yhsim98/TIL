@@ -17,3 +17,9 @@ Spring 컨테이너가 관리하는 객체를 bean 객체라 한다
 # IoC의 분류
 IoC는 DL(Dependency Lookup)과 DI(Dependency Injection)로 분류된다  
 DL은 특정 컨테이너에 종속되는 api를 쓰기 때문에 주로 DI를 쓴다
+
+# DL
+의존성 검색, 저장소에 저장되어 있는 Bean에 접근하기 위해 컨테이너가 제공하는 API를 이용하여 Bean을 Lookup 하는 것
+
+# DI
+의존성 주입, 각 클래스간의 의존관계를 빈 설정 정보를 바탕으로 컨테이너가 장동으로 연결해주는 것

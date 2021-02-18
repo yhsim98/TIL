@@ -5,6 +5,10 @@ Java 엔터프라이즈 개발을 편하게 해주는 오픈소스 경량급 애
 엔터프라이즈 개발의 복잡함을 상대하는 Spring의 4가지 전략 
 * Portable Service Abstraction, DI, AoP, POJP
 
+# 스프링 삼각형 
+엔터프라이즈 개발의 복잡함을 상대하는 Spring의 전략
+* Portable Service Abstraction, DI, AOP, POJO 
+
 ## Portable Service Abstraction(서비스의 추상화)
 트랜잭션 추상화, OXM(object, XML, mapping) 추상화, 데이터 액세스의 Exception 변환기능 등 기술적인 복잡함은 추상화를 통해 Low Level의 기술 구현 부분과 기술을 사용하는 인터페이스로 분리한다.
 
