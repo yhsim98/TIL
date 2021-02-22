@@ -66,3 +66,52 @@ Mapper 인터페이스는 Mapping 파일에 기재된 SQL을 호출하기 위한
 * Mapper 인터페이스의 수가 많아지면 MapperScannerConfigurer를 이용하여 Mapper 인터페이스의 객체를 한 번에 등록하는 것이 편리하다
 * MapperScannerConfigurer를 이용하면 지정한 패키지 아래 모든 인터페이스가 Mapper 인터페이스로 간주되어 Mapper 인터페이스의 객체가 DI 컨테이너에 등록된다
 
+# Mybatis 사용하기
+
+## 1. Datasource 등록
+sqlSessionFactory는 dataSource를 필요로 하기 때문에 만약 dataSource bean 등록이 안되있다면 등록해야 한다.
+
+        <!-- DataSource 설정 -->
+        <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+	        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	        <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+	        <property name="username" value="${db.username}"/>
+	        <property name="password" value="${db.password}"/>
+        </bean>
+
+mySql을 쓰냐 혹은 oracle을 쓰냐에 따라 약간씩 달라질 수 있다.
+
+## 2. sqlSessionFactory 등록
+mybatis 스프링 연동모듈에서, SqlSessionFactoryBean은 SqlSessionFactory를 만들기 위해 사용된다. 다음 설정을 추가하면 된다.
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath*:sample/config/mappers/**/*.xml" />
+    </bean>
+
+mapperLocations 프로퍼티는 mapper에 관련된 xml 파일의 위치를 나열한다. mapper 인터페이스의 구현체의 위치라 생각하는게 편할것 같다.
+
+## 3. mapper 등록
+매퍼 인터페이스가 정의되어 있다면 다음처럼 MapperFactoryBean을 사용하여 스프링에 추가하면 된다.
+
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.mybatis.spring.sample.mapper.UserMapper" />
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
+
+
+## 4. DataSourceTransactionManager 등록
+스프링 트랜잭션이 가능하도록, 스프링 설정을 다음과 같이 해준다.
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+이때 dataSource는 반드시 sqlSessionFactoryBean을 생성할때 사용된 것과 같아야 한다.
+
+## 5. SqlSessionTemplate 등록
+mybatis 스프링 연동모듈의 핵심인 sqlSessionTemplate를 등록한다. 
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
