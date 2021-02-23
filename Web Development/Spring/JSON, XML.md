@@ -26,6 +26,22 @@ xml설정에 mvc:annotation-driven 태그를 추가하면 Spring MVC에 필요�
 DispacherServlet은 url-pattern을 "/" 와 같이 설정하게 되면서 tomcat의 server.xml에 정의되어 있는 url-pattern "/"을 무시하게 된다. 그럼으로 DefaultServlet은 더 이상 동작하지 않게 된다.  
 Spring에서는 이를 해결하기 위해 mvc:default-servlet-handler 태그를 추가하면 된다.
 
+# @RequestBody, @ResponseBody
+각각 HTTP 요청 몸체를 자바 객체로 변환하고, 자바 객체를 HTTP 응답 몸체로 변환하는 데 사용된다. 
+
+@RequestBody 어노테이션은 @RequestMapping에 의해 POST 방식으로 전송된 HTTP 요청 데이터를 String 타입의 피라미터로 전달된다.(수신)
+
+@ResponseBody 어노테이션이 @ReqeustMapping 메서드에 적용되면 해당 메서드의 리턴 값을 HTTP 응답 데이터로 사용한다.
+
+    @PostMapping("")
+    @ResponseBody
+    public String simpleTest(@RequestBody String body){
+        return body;
+    }
+
+# @RestControlller
+@controller에 @ResponseBody가 추가된 것이다. Json 형태로 객체 데이터를 반환해 준다.
+
 
 # XML(eXtensible Markup Language)
 * Data를 저장하고 전달 하기 위한 언어이다
@@ -53,6 +69,7 @@ Spring에서는 이를 해결하기 위해 mvc:default-servlet-handler 태그를
         </customer>
 
 
+ 
 
 # Spring MVC기반 RESTful 웹 서비스 구현 절차
 1. RESTful 웹 서비스를 처리할 RestfulController 클래스 작성 및 Spring Bean으로 등록
