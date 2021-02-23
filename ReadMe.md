@@ -29,4 +29,8 @@
 * [Spring MVC](https://github.com/yhsim98/TIL/blob/master/Web%20Development/Spring/Spring%20MVC.md)
 * [JSON, XML](https://github.com/yhsim98/TIL/blob/master/Web%20Development/Spring/JSON%2C%20XML.md)
 
+# 자료구조 & 알고리즘
+* [세그먼트 트리](https://github.com/yhsim98/TIL/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%20%26%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8_%ED%8A%B8%EB%A6%AC.md)
+* [위상 정렬](https://github.com/yhsim98/TIL/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%20%26%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/%EC%9C%84%EC%83%81_%EC%A0%95%EB%A0%AC.md)
+* [LCS](https://github.com/yhsim98/TIL/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%20%26%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/LCS.md)
 
