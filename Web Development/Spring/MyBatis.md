@@ -67,6 +67,7 @@ Mapper 인터페이스는 Mapping 파일에 기재된 SQL을 호출하기 위한
 * MapperScannerConfigurer를 이용하면 지정한 패키지 아래 모든 인터페이스가 Mapper 인터페이스로 간주되어 Mapper 인터페이스의 객체가 DI 컨테이너에 등록된다
 
 # Mybatis 사용하기
+## 0. mapper 인터페이스와 mapping 파일 구현 
 
 ## 1. Datasource 등록
 sqlSessionFactory는 dataSource를 필요로 하기 때문에 만약 dataSource bean 등록이 안되있다면 등록해야 한다.
