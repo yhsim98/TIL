@@ -169,7 +169,7 @@ persistence 레이어, 영속성을 가지는 속성(파일, 데이터베이스)
 ### @Resource
 의존하는 객체를 자동으로 주입해 주는 어노테이션, 이름으로 연결한다.
 * 어플리케이션에서 필요로 하는 자원을 자동 연결할 때 사용된다
-* @Resource는 property, setter 메서드에 적용 가능하다
+* @Resource는 property, setter 메서드에만 적용 가능하다
 * 의존하는 객체를 주입할 때 주로 Name을 이용하게 된다
 
 ### @Value
