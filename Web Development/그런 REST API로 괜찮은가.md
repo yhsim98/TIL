@@ -55,7 +55,6 @@ uniform interface를 잘 지키지 않는다
 애플리케이션의 상태는 Hyperlink를 이용해 전이되어야 한다.
 
 
-
 # Uniform Interface의 필요성
 독집적 진화를 위해서 이다
 
