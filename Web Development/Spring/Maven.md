@@ -28,3 +28,4 @@ http://mvnrepository.com 에 의존성에 설정에 관한 정보들이 있다
 https://jeong-pro.tistory.com/168
 지금은 잘 이해를 못하겠다
 좀 공부를 더 해봐야 알것같다 사전지식이 부족한 느낌...
+써보니까 알것같다 
