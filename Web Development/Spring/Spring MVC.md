@@ -72,7 +72,7 @@
 # Spring MVC의 주요 구성 요소
 
 ## DispacherServlet 
-클라이언트의 요청을 받아서 Controller에게 클라이언트의 요청을 전달하고, 리턴한 결과값을 View에게 전달하여 알밪은 응답을 생성한다
+클라이언트의 요청을 받아서 Controller에게 클라이언트의 요청을 전달하고, 리턴한 결과값을 View에게 전달하여 알맞은 응답을 생성한다
 
 ## HandlerMapping
 URL과 요청 정보를 기준으로 어떤 핸들러 객체를 사용할지 결정하는 객체이며, DispacherServlet은 하나 이상의 핸들러 매핑을 가질 수 있다.
