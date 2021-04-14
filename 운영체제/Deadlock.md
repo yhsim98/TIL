@@ -144,4 +144,67 @@ deadlock 될 것 같으면 자원 할당 요청 보류, 시스템을 항상 safe
     * **시험문제 나온다면 safe가 존재함을 증명**하면 된다
 
 ## Habermann's algorithm
-다익스트라의 확장
+다익스트라의 확장, 자원의 개수가 여러개인 버젼
+
+* high overhead
+    * 항상 감시하고 있어야 함
+* Low resource utilization
+    * Safe state 유지를 위해, 사용 되지 않는 자원이 존재
+* Non practical
+    * 가정
+        * 프로세스 수, 자원 수가 고정
+        * 필요한 최대 자원 수를 알고 있음
+
+
+# Deadlock detetction and deadlock recovery methods
+## Deadlock Detection
+* Deadlock 방지를 위한 사전 작업을 하지 않음
+    * Deadlock 발생 가능
+* 주기적으로 deadlock 발생 확인 
+    * 어떤 시스템, 프로세서가 deadlcok 상태인지 알아야 한다
+* Resource Allocation Graph(RAG) 사용
+    * Deadlock 검출을 위해 사용
+    * Directed, bipartite Graph
+* 최선의 경우를 생각
+?????
+
+
+## Deadlock Recovery
+* Process termination
+    * Deadlock 상태인 프로세스 중 일부 종료
+    * Termination cost model
+        * 종료 시킬 deadlock 상태의 프로세스 선택
+        * Termination cost에 따라 결정
+            * 우선순위, 종료 등
+    * Lowest-termination cost process first
+        * simple
+        * Low overhead
+        * 불필요한 프로세스 종료 될 가능성 높다
+    * Minimum cost recovery
+        * 최소 비용으로 deadlock 상태를 해소 할 수 있는 process 선택
+            * 모든 경우의 수를 고려해야 함
+        * 복잡하다
+        * High overhead 
+            * O(2^k) 
+* Resource preemption
+    * Deadlock 상태 해결 위해 선점할 자원 선택
+    * 해당 자원을 가지고 있는 프로세스에서 자원을 빼앗음
+        * 자원을 빼앗긴 프로세스는 강제 종료 됨
+        * Deadlock 상태가 아닌 프로세스가 종료될 수 있음
+        * 해당 프로세스는 이후 재시작 됨
+    * 선점할 자원 선택
+        * Preemption cost model이 필요
+        * Minimunum cost recovery method 사용
+            * O(r)
+
+* Checkpoint-restart method
+    * deadlock를 해결하기 위해서는 process를 종료해야 함, 그때 재시작하기 위한 메소드
+    * 프로세스의 수행 중 특정 지점마다 context를 저장
+    * Rollback을 위해 사용
+        * 프로세스 강제 종료 후, 가장 최근의 checkpoint에서 재시작
+
+
+
+
+
+
