@@ -203,3 +203,8 @@ NULL은 데이터가 없음을 의미한다. 만약 NOT NULL로 만들었다면 
 
 # 데이터 입력과 삭제
 ## 데이터 입력, INSERT 문
+DML에서 입력역할을 하는 INSERT 문이다. 
+
+    INSERT INTO 테이블명 ( column1, column2, column3 )
+    values ( 값1, 값2, -----);
+
