@@ -77,6 +77,8 @@
 ## HandlerMapping
 URL과 요청 정보를 기준으로 어떤 핸들러 객체를 사용할지 결정하는 객체이며, DispacherServlet은 하나 이상의 핸들러 매핑을 가질 수 있다.
 
+참고로 ControllerMapping이 아닌 HandlerMapping인 이유는 스프링 MVC에서 웹 요청을 실제로 처리하는 객체를 핸들러(Handler)라고 표현하고 있으며, @Controller 적용 개체나 Controller 인터페이스를 구현한 객체 모두 스프링 MVC입장에서는 Handler이다. 따라서, 특정 요청 경로를 처리해주는 Handler를 찾아주는 객체를 HandlerMapping이라고 부른다. 
+
 ## Controller 
 클라이언트의 요청을 처리한 뒤, Model를 호출하고 그 결과를 DispacherServlet에게 알려 준다.
 
@@ -193,6 +195,5 @@ View에 데이터를 전달한다
 * EL에서는 해당 값이 null이거나 공백일 경우에는 아무 내용도 표시하지 않고 에러도 발생하지 않는다
 * EL은 JSP에서 기본으로 지원하고, JSTL은 따로 설치해야 한다
 
-# JSTL(Java Standard Tag Library)
 
 
