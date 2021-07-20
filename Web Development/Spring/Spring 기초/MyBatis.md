@@ -116,3 +116,6 @@ mybatis 스프링 연동모듈의 핵심인 sqlSessionTemplate를 등록한다.
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
+
+
+
