@@ -28,6 +28,7 @@ spring 프로젝트의 경우 resources의 db.migrastion 디렉토리가 기본 
     * 가장 최근에 적용된 버전 마이그레이션을 취소한다
 
 # File naming
+![](http://www.popit.kr/wp-content/uploads/2016/11/SqlMigrationNaming-600x185.png)
 flyway의 파일명은 다섯가지로 구성되어 있다.
 1. prefix
 2. version
@@ -76,6 +77,7 @@ flyway가 어떤 것인지 느껴보기 위해 직접 사용해 보았다.
 
 두가지 방법으로 실행해 보았다.  
 mysql은 버젼 8을 사용했고, flyway 의존성은 당연히 추가했다고 가정한다.
+우선 resources.db.migration 에 sql스크립트 파일을 추가해 준다.
 
 1. maven의 plugin으로 migration
 pom.xml에 해당 코드를 추가하면 된다.
