@@ -28,7 +28,8 @@ spring 프로젝트의 경우 resources의 db.migrastion 디렉토리가 기본 
     * 가장 최근에 적용된 버전 마이그레이션을 취소한다
 
 # File naming
-![](http://www.popit.kr/wp-content/uploads/2016/11/SqlMigrationNaming-600x185.png)
+![](http://www.popit.kr/wp-content/uploads/2016/11/SqlMigrationNaming-600x185.png)  
+
 flyway의 파일명은 다섯가지로 구성되어 있다.
 1. prefix
 2. version
@@ -114,3 +115,6 @@ pom.xml에 해당 코드를 추가하면 된다.
 
 위 코드로 spring bean을 추가해주면된다.
 tomcat 실행 시 자동으로 migration이 진행된다. 
+
+
+
