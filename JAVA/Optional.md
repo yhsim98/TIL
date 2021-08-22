@@ -5,4 +5,14 @@
 ## Optional
 Java8부터는 Optional 클래스를 사용해 NPE를 방지할 수 있도록 도와준다. Optional은 null이 올 수 있는 값을 감싸는 Wrapper 클래스로, 참조하더라도 NPE가 발생하지 않도록 도와준다. Optional 클래스는 value에 값을 저장하기 때문에 null이더라도 바로 NPE가 발생하지 않으며, 클래스이기 때문에 각종 메소드를 제공해준다.
 
+    public final class Optional<T>{
+        private final T value;
+        
+        ....
+    }
+
+만약 어떤 데이터가 null이 올 수 있는 경우 해당 값을 Optional로 감싸서 생성할 수 있다. 그리고 orElse 또는 orElseGet메소드를 이용해서 값이 없는 경우라도 안전하게 값을 가져올 수 있다.
+
+    Optional<User> user = Optional.ofNullable(userMapper.getUserByEmail(email));
+    String name = user.getName().orElse("annonymous");
 
