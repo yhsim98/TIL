@@ -27,4 +27,6 @@ JWT 등 토큰인증방식은 spring-security-oauth2를 사용하면 된다.
 3. DB에 있는 유저라면 UserDetais로 꺼내서 유저의 session 생성
 4. spring security의 인메모리 세션저장소인 SecurityContextHolder에 저장
 5. 유저에게 session ID와 함께 응답을 내려줌
-6. 이후 요청에서는 요청 쿠키에서 JSESSIONID를 확인해 검증 후 유효하면 Authentication을 부여함
+6. 이후 요청에서는 요청 쿠키에서 JSESSIONID를 확인해 검증 후 유효하면 Authentication을 부여한다
+
+# 
