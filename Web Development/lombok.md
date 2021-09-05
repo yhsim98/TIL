@@ -29,7 +29,7 @@ preferences의 build, execution, deployment의 compiler에 들어가 annotaion p
 ## @RequiredArgsConstructor
 특정 변수만을 활용하는 생성자를 자동원성 시켜준다.
 
-생성자의 인자로 추가할 변수에 @NonNull을 붙이거나 final로 선언해주ㅜ면 자동으로 의존성을 주입받을 수 있다.
+생성자의 인자로 추가할 변수에 @NonNull을 붙이거나 final로 선언해주면 자동으로 의존성을 주입받을 수 있다.
 
 ## @EqualsAndHashCode
 클래스에 대한 equals 함수와 hashCode 함수를 자동으로 생성해준다.
