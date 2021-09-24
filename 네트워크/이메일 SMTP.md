@@ -30,5 +30,18 @@ MIME(Multipurpose Internet Mail Extension) : base-64
 * 그래서 MIME을 사용한다
 * MIME은 송수신 하고자 하는 정보를 아스키 코드로 변환 해준다
 
+## HTTP vs SMTP
+HTTP
+* Pull Protocol
+* Multimedia 객체 전송
+* 1 응답 메시지 : 1 웹 객체
+
+SMTP
+* Push Protocol
+* Text-only 메시지 전송
+    * text라는 것은 아스키 문자를 뜻한다
+* 1 전송 메시지 : 멀티-파트 메시지
+
+
 
 
