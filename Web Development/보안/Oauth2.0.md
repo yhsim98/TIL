@@ -22,5 +22,6 @@
     * redirect 때 자사의 서비스는 callback URL을 통해 Authorization Code를 전달받는다.
 5. 전달받은 authorization code를 통해 인증 서비스를 제공하는 서비스에 Access Token을 요청, 발급받아 저장, 관리한다.
 6. access token을 사용하여 인증 서비스를 제공하는 회사의 유저 정보를 가져올 수 있다
+7. 가져온 유저 정보로 회원가입, 로그인 등을 진행한다
 
 
