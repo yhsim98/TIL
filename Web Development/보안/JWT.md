@@ -95,12 +95,9 @@ JWT 토큰은 가끔 URL의 파라미터로 전달 될 때도 있는데 '='문�
 
 
 
+# access token과 refresh token
+jwt를 사용하게 되면 보통 access token을 발급하여 사용하게 된다. 
 
-
-
-# spring에서의 반응
-서버로 JWT을 보낼 경우 HttpServletRequest의 header에 Authorization 이라는 키로 보내게 된다.
-
-
+이 경우 서버는 유저회원에 대한 정보를 보관하지 않기 때문에 
 
 
