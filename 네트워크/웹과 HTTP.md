@@ -1,4 +1,5 @@
 # HTTP
+어플리케이션 계층의 프로토콜, TCP를 사용한다
 
 # 웹 서비스 모델
 웹 서버(Web server)
@@ -10,7 +11,7 @@
 * 참조 객체 : HTML file, JPEG image, Java applet, audio file, video file ......
     * 서로 다른 서버에 존재가능
 
-웹 객체 주소 : URL(Uniform Resource Locatior)
+웹 객체 주소 : URL(Uniform Resource Locator)
 * host name과 path name으로 구성
     * host name은 서버 주소
     * 그 서버의 지정 웹페이지 경로 주소
@@ -53,12 +54,12 @@ HTTP response
 TCP 연결과 HTTP 요청
 * HTTP request 전 핸드쉐이킹 과정이 있다
 * 3 way hand shaking
-1. 클라이언트의 연결요청 메시지
-    * SYN
-2. 서버의 응답 메시지
-    * SYN, ACK
-3. 클라이언트가 받았다고 다시 응답
-4. 이후 HTTP Request
+    1. 클라이언트의 연결요청 메시지
+        * SYN
+    2. 서버의 응답 메시지
+        * SYN, ACK
+    3. 클라이언트가 받았다고 다시 응답
+    4. 이후 HTTP Request
 
 # 비지속 연결(non-persistect) HTTP
 비지속 연결 HTTP
@@ -66,10 +67,13 @@ TCP 연결과 HTTP 요청
     * 이것을 비지속 연결이라 한다
 * 10개의 객체로 구성된 웹 페이지 전송을 위해 10개의 TCP 연결 설정
 * 다중 연결(multiple connections) 설정으로 병렬 전송 가능
+    * 한 클라이언트에서 서버에 다수의 TCP 연결이 가능하다
+    * 물론 TCP 연결은 서버의 자원을 먹는다
 * 서버 자원 관리 차원에서 클라이언트별 병렬 연결 수 제한(5 ~ 10)
 
 비지속 HTTP와 지연시간
 * 객체별 지연시간 : 2RTT + 객체파일 전송시간
+    * RTT : 왕복지연시간
 
 # 지속 연결 HTTP
 지속 연결 HTTP
