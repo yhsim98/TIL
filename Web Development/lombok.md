@@ -54,3 +54,5 @@ preferences의 build, execution, deployment의 compiler에 들어가 annotaion p
 해당 클래스의 객체의 생성에 Builder패턴을 적용시켜 준다. 
 
 클래스 위헤 붙이면 모든 변수에 대해 builder가 적용되고, 특정 변수만 적용시키고자 한다면 생성자를 만들고 그 위에 붙여주면 된다.
+
+## @Data
