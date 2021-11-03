@@ -1,7 +1,7 @@
 # Today I Learned
 필요할 때 찾아보기 좋게 
-배운 것들을 정리하는 repository 
-매일매일 뭔가 공부하고 기록해보자
+배운 것들을 정리하는 repository 입니다.
+
 
 # MD 
 * [MD 문서 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
