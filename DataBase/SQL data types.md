@@ -25,3 +25,15 @@
 # Approximate numerics
 float와 real이 있다. 수에 따라 범위와 차지하는 공간이 달라진다.
 
+
+# Character Strings
+## char
+* Fixed-length, non-Unicode string data
+* n defines the string length and must be a value from 1 through 8000. The storage size is n bytes
+* The ISO synonym for char is character
+
+## varchar 
+* variable-length, non-Unicode string data
+* n defines the string length and can be a value form 1 through 8000. max indicates that the maximum storage size is 2^31 - 1bytes(2 GB)
+* The storage size, in bytes, is the value of the actual data entered + 2 bytes.
+
