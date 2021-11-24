@@ -52,3 +52,9 @@ XML의 Element 이름을 정의한다. 변수에 사용하는 어노테이션으
 
 3. URI에 /는 계층형 구조를 표현할 때 사용
 
+# 응답시 널 값을 제외하고자 할 경우
+domain 클래스 위에 
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
+어노테이션을 추가하면 된다.
