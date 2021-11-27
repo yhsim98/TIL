@@ -110,3 +110,5 @@ jwt를 사용하게 되면 보통 access token을 발급하여 사용하게 된�
 그래서 사용되는 방법이 refresh token과 access token을 같이 사용하는 방법이다. 
 
 access token의 유효기간은 짧게 설정하고 refresh token의 유효기간은 길게 설정한다.
+
+access token이 
