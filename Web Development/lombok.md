@@ -56,3 +56,4 @@ preferences의 build, execution, deployment의 compiler에 들어가 annotaion p
 클래스 위헤 붙이면 모든 변수에 대해 builder가 적용되고, 특정 변수만 적용시키고자 한다면 생성자를 만들고 그 위에 붙여주면 된다.
 
 ## @Data
+getter, setter, toStirng, requiredArgsConsturcture, hashcode, clone 등등 여러개가 합쳐진 어노테이션이다. 무거운 편
