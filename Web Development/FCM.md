@@ -95,3 +95,4 @@ java maven의 경우 pom.xml에
 이다.
 
 
+# 디바이스 토큰
