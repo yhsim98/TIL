@@ -374,4 +374,22 @@ mappedBy 를 사용해 관계의 주인을 명시함으로써 관계 테이블�
 * 주문시간, 수량 같은 데이터가 들어올 수 있다
 * 그래서 그냥 연결 테이블을 Entity 로 승격시켜서 사용한다
 
+## 어노테이션 주요 속성
+@JoinColumn
+* 외래 키를 매핑할 때 사용
+* 속성
+    * name : 매핑할 외래 키 이름
+    * referencedColumnName : 외래 키가 참조하는 대상 테이블의 칼럼명
+* Column 이랑 비슷?
 
+@ManyToOne
+* 다대일 관계 매핑
+* optional : false 로 설정하면 엔티티가 항상 있어야 함
+* fetch : 글로벌 패치 전략을 설정
+* cascade : 영속성 전이 기능을 사용
+
+@OneToMany
+* 일대다 관계 매핑
+* mappedBy : 연관관계의 주인 필드를 선택
+* fetch : 글로벌 페치 전략을 설정
+* cascade : 영속성 전이 기능을 사용
