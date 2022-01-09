@@ -11,7 +11,7 @@
 기존에 많이 사용하던 Apache와 Nginx를 비교해보자
 
 Apache
-* 스레드/프로세스 기반 구조로 요청 하나당 스레드 하나가 처리하는 구조
+* thread/process 기반 구조로 요청 하나당 스레드 하나가 처리하는 구조
 * 사용자가 많으면 많은 스레드 생성, 메모리 및 CPU 낭비가 심함
 * 하나의 스레드 : 하나의 클라이언트
 
@@ -31,6 +31,79 @@ Apache와 Nginx의 가장 큰 차이는 결국 Thread 방식과 Event-driven방�
 
 Event-driven 방식으로 처리하게 된다면 더 적은 자원으로 더 좋은 성능을 낼 수 있다.
 
-Event-driven 방식에 대한 자세한 설명은 검색해보길 바란다.   나는 잘모르겠다...
 
 
+# nginx 기본 설정
+nginx.conf 파일을 통해 설정할 수 있다.
+
+기본 경로는 /etc/ningx/
+
+2. HTTP 블록
+웹 서버에 대한 동작을 설정하는 영역으로, server 블록과 location 블록의 루트 블록이다.
+
+3. server 블록
+하나의 웹사이트를 선언하는 데 사용된다. 가상 호스팅(Virtual Host)의 개념이다.
+
+4. location 블록
+server 블록 내에서 특정 URL을 처리하는 방법을 정의한다
+
+5. events 
+주로 네트워크 동작에 관련된 설정하는 영역으로, 이벤트 모율을 사용한다.
+
+    # worker 프로세스를 실행할 사용자 설정
+    # - 이 사용자에 따라 권한이 달라질 수 있다.
+    user  nginx;
+    # 실행할 worker 프로세스 설정
+    # - 서버에 장착되어 있는 코어 수 만큼 할당하는 것이 보통, 더 높게도 설정 가능
+    worker_processes  1;
+
+    # 오류 로그를 남길 파일 경로 지정   
+    error_log  /var/log/nginx/error.log warn;
+    # NGINX 마스터 프로세스 ID 를 저장할 파일 경로 지정
+    pid        /var/run/nginx.pid;
+
+
+    # 접속 처리에 관한 설정을 한다.
+    events {
+        # 워커 프로레스 한 개당 동시 접속 수 지정 (512 혹은 1024 를 기준으로 지정)
+        worker_connections  1024;
+    }
+
+    # 웹, 프록시 관련 서버 설정
+    http {
+        # mime.types 파일을 읽어들인다.
+        include       /etc/nginx/mime.types;
+        # MIME 타입 설정
+        default_type  application/octet-stream;
+
+        # 엑세스 로그 형식 지정
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+
+        # 엑세스 로그를 남길 파일 경로 지정
+        access_log  /var/log/nginx/access.log  main;
+
+        # sendfile api 를 사용할지 말지 결정
+        sendfile        on;
+        #tcp_nopush     on;
+
+        # 접속시 커넥션을 몇 초동안 유지할지에 대한 설정
+        keepalive_timeout  65;
+
+        # (추가) nginx 버전을 숨길 수 있다. (보통 아래를 사용해서 숨기는게 일반적)
+        server_tokens off;
+
+        #gzip  on;
+
+        # /etc/nginx/conf.d 디렉토리 아래 있는 .conf 파일을 모두 읽어 들임
+        include /etc/nginx/conf.d/*.conf;
+    }
+    [출처 https://kscory.com/dev/nginx/install]
+
+
+
+# nginx 튜닝하기
+https://couplewith.tistory.com/entry/%EA%BF%80%ED%8C%81-%EA%B3%A0%EC%84%B1%EB%8A%A5-Nginx%EB%A5%BC%EC%9C%84%ED%95%9C-%ED%8A%9C%EB%8B%9D-1-%EB%94%94%EC%8A%A4%ED%81%AC%EC%9D%98-IO-%EB%B3%91%EB%AA%A9-%EC%A4%84%EC%9D%B4%EA%B8%B0
+
+nginx 튜닝을 통해 성능도 늘리고 보안도 강화할 수 있다.
