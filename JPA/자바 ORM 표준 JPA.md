@@ -677,5 +677,28 @@ hashcode 도 재정의해줘야 함
 * 사실 안씀
 * QueryDSL 사용 권장
 
+## JPQL 문법
+* 엔티티와 속성은 대소문자를 구분ㅇ
+* JPQL 키워드는 대소문자를 구분x
+* 테이블이 아닌 엔티티 이름을 사용한다
+* 별칭은 필수(ex Member as m)
+* 집합(sum, avg), 정렬 전부 지원
 
+### TypeQuery, Query
+* TypeQuery: 반환 타입이 명확할 때 사용
+* Query: 반환 타입이 명확하지 않을 때 사용
+    
+    TypedQuery<> query = em.createQuery("SELECT m FROM MEMBER m", Member.class);
+
+    Query query = em.createQuery("select m.username, m.age from member m");
+
+### 결과 조회 API
+* query.getResultList() : 결과가 하나 이상일 때, 리스트 반환
+    * 없으면 빈 리스트
+* query.getSingleResult() : 결과가 정확히 하나, 단일 객체 반환
+    * 하나 아니면 예외
+
+### 파라미터 바인딩
+* select u from user where u.id=:id
+* query.setParameter("id", userId); 
 
