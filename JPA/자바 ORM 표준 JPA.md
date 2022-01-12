@@ -699,6 +699,24 @@ hashcode 도 재정의해줘야 함
     * 하나 아니면 예외
 
 ### 파라미터 바인딩
-* select u from user where u.id=:id
+* select u from user u where u.id=:id
 * query.setParameter("id", userId); 
+
+### 프로젝션
+* SELECT 절에 조회할 대상을 지정하는 것
+* 프로젝션 대상: 엔티티, 임베디드 타입, 스칼라 타입
+* 여러 값을 반환할 경우 DTO 를 만들어 해주는 것이 좋다
+* select new 패키지이름.MemberDTO(m.username, m.age) from m
+    * 물론 순서와 타입이 일치하는 생성자 있어야 함
+    * 패키지 이름까지 다 적어야 함
+
+## 페이징 API
+* JPA는 페이징을 다음 두 API로 추상화
+* setFirstResult(int startPosition) : 조회 시작 위치
+* setMaxResults(int maxResult) : 조회할 데이터 수
+
+## 조인
+* 연관관계가 없어도 left join 하고 싶으면 똑같이 on 사용하면 됨
+
+## 서브쿼리
 
