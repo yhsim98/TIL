@@ -720,3 +720,23 @@ hashcode 도 재정의해줘야 함
 
 ## 서브쿼리
 
+
+## JPA 서브 쿼리 한계
+* JPA는 WHERE, HAVING 절에서만 서브 쿼리 사용 가능
+* SELECT 절도 가능(Hibernate 에서 지원)
+* FROM 절의 서브 쿼리는 현재 JPQL 에서 불가능
+    * 조인으로 풀 수 있으면 해결
+
+## JPQL 타입 표현
+* 문자 : 'asd'
+* 숫자 : 1, 2, 3L 
+* 열거형 : 패키지명.MemberType
+* 엔티티 타입 : TYPE(m) = Member(상속 관계에서 사용)
+    * 이런식으로 상속관계일 때 타입 으로 조회 가능
+
+## 조건식 - CASE 식
+* select case when then when then else
+* COALESCE : 하나씩 조회해서 null이 아니면 반환
+    * SELECT coalesce(m.username, 'asd') from Member m
+    * null 이면 'asd' 가 반환
+* NULLIF : 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
