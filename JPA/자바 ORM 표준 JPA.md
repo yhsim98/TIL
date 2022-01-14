@@ -740,3 +740,42 @@ hashcode 도 재정의해줘야 함
     * SELECT coalesce(m.username, 'asd') from Member m
     * null 이면 'asd' 가 반환
 * NULLIF : 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
+    * SELECT NULLIF(m.username, 'asd') from member m
+    * username 이 'asd' 면 null 반환
+
+## 경로표현식   
+
+### 경로표현식 용어 정리
+* 상태 필드
+    * 단순히 값을 저장하기 위한 필드
+* 연관 필드
+    * 연관관계를 위한 필드 
+    * 단일 값 연관 필드
+        * ManyToOne, OneToOne
+    * 컬렉션 값 연관 필드
+        * OneToMany, ManyToMany
+
+## 경로표현식 특징
+* 상태 필드 : 경로 탐색의 끝, 더 이상 탐색 안됨
+* 단일 값 연관 경로 : 묵시적 내부 조인 발생, 탐색 된다
+    * 묵시적이 되도록 하면 튜닝하기 힘들다, 쓰지 말자
+* 컬렉션 값 연관 경로 : 묵시적 내부 조인 발생, 탐색 안됨
+    * FROM 절에서 명시적 조인을 통해 별칭을 얻으면 별칭을 통해 탐색 가능 
+    * select m from team t join t.members m
+* 그냥 묵시적 조인을 사용하지 말고 명시적 조인을 사용하자
+    * 튜닝하기 힘들다
+
+## 페치 조인(fetch join)
+* SQL 조인 종류X
+* JPQL 에서 성능 최적화를 위해 제공하는 기능
+* 연관된 엔티티나 컬렉션을 SQL 한 번에 함께 조회하는 기능
+* join fetch 명령어 사용
+* 페치 조인 ::= [LEFT[ OUTER ] | INNER ] JOIN FETCH 조인 경로
+
+### 엔티티 페치 조인
+* 회원을 조회하며 연관된 팀도 함께 조회(SQL 한 번에)
+* SQL을 보면 회원 뿐만 아니라 팀도 함께 SELECT
+* JPQL
+    * select m from Member m join fetch m.team
+* SQL
+    * SELECT M.*, T.* FROM MEMBER M INNER JOIN TEAM T ON M.TEAM_ID=T.ID
