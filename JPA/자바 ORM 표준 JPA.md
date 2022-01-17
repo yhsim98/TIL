@@ -197,18 +197,21 @@ java 타입과 컬럼 타입
 * GenerationType.IDENTITY
     * mySql 의 auto_inclement
 * GenerationType.SEQUENCE
-    * 
-* 여러가지 있다, IDENTITY 권장
+    * oracle
+* 여러가지 있다, IDENTITY 등 자동 생성 권장
 
-@SequenceGenerator
-* allocation size 를 이용하여 미리 여러 로를 할당하는 방식으로 insert 문이 여러 번 네트워크를 타지 않도록 할 수 있다
+@SequenceGenerator(
+        name="ORDER_SEQ_GENERATOR",
+        sequenceName = "MEMBER_SEQ",
+        initialValue=1, allocationSize = 50
+)
+* sequence 에서 allocation size 를 이용하여 미리 여러 로를 할당하는 방식으로 insert 문이 여러 번 네트워크를 타지 않도록 할 수 있다
     * 성능최적화
     * 동시성문제도 없다
 * 
 
 IDENTITY 의 경우 DB에 insert 되야지만 ID 값을 알 수 있다. 그래서 커밋하는 시점이 아닌 영속성 컨텍스트에 들어가는 즉시 db에 insert 문을 바로 보내도록 한다.
 
-한번에 50개씩 할당하여 사용하는 방식으로 최적화 가능하다 
 
 ## 데이터 중심 설계의 문제점
 객체를 설계할 때 memberId, orderId 등 관계를 나타내는 id 를 가지고 있는 현재 방식은 객체 설계를 테이블 설계에 맞춘 방식
@@ -832,4 +835,15 @@ hashcode 도 재정의해줘야 함
 * 애플리케이션 로딩 시점에 초기화 후 재사용
     * SQL로 미리 캐싱하고 있다
 * 애플리케이션 로딩 시점에 쿼리를 검증
-    * 
+    
+## 벌크 연산
+* 재고가 10개 미만인 모든 상품의 가격을 10% 상승하려면?
+* JPA 변경 감지 기능으로 실행하려면 너무 많은 SQL 실행
+* 쿼리 한번으로 한꺼번에 하게 해주는 것이 벌크 연산
+* executeUpdate(), executeDelete()
+
+### 벌크 연산 주의
+* 벌크 연산은 영속성 컨텍스트를 무시하고 데이터베이스에 직접 쿼리한다
+    * 벌크 연산을 먼저 실행하고 영속성 컨텍스트에서 작업을 하던가
+    * 벌크 연산 수행 후 영속성 컨텍스트 초기화하던가
+    * 참고로 벌크 연산은 flush() 후에 실행된다, 근데 이게 영속성 컨텍스트에 반영되지는 않는다
