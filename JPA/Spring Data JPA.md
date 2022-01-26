@@ -80,6 +80,29 @@ nativeQuery=true 를 추가하면 네이티브 sql 로 작성이 가능하다
 * org.springframework.data.domain.Sort : 정렬 기능
 * org.springframework.data.domain.Pageable : 페이징 기능(내부에 sort 포함)
 
-``` 
-Page<Member> 
+```
+// count 쿼리 같이 호출
+Page<Member> findByName(String name, Pageable pageable);
+
+// count 쿼리 사용 안함
+List<Member> findByName(String name, Pageable pageable);
+```
+
+파라미터에 Pageable 사용하면 반환값으로 List 나 Page 를 사용할 수 있다. 반환타입으로 Page 를 사용하게 되면 스프링 데이터 JPA 는 페이징 기능을 제공하기 위해 검색된 전체 데이터 건수를 조회하는 count 쿼리를 추가로 호출하게 된다.
+
+```
+// 현재 페이지, 조회할 데이터 수, 정렬정보
+PageRequest pageRequest = new PageRequest(0, 10, new Sort(Direction.DESC, "name"));
+
+Page<Member> result = findByName("a", pageRequest);
+```
+
+Pageable 은 인터페이스이다. 따라서 실제 사용할 때는 구현체인 PageRequest 를 사용하게 된다.
+
+Page 는 다양한 메소드를 제공한다
+
+## 사용자 정의 리포지토리 구현
+리포지토리를 직접 구현해야할 때 JpaRepository<>를 직접 구현하게 되면 공통 인터페이스가 제공하는 기능까지 모두 구현해야 한다. 스프링 데이터 JPA 는 필요한 메소드만 구현할 수 있게 해주는 방법을 제공한다
+
+사용자 정의 인터페이스를 작성 후 인터페이스이름 + impl 로 이름을 붙인 구현체를 만든 후 리포지토리 인터페이스에 상속하면 jpa 에서 자동으로 찾아 넣어주게 된다.
 
