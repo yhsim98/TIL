@@ -68,3 +68,18 @@ nativeQuery=true 를 추가하면 네이티브 sql 로 작성이 가능하다
 메소드 키워드에 따라 다양한 기능을 제공한다. 자세한건 spring data jpa 공식문서 참조하자
 
 ## 벌크성 수정 쿼리
+여러 엔티티를 한번에 수정하는 벌크성 수정 쿼리는 ```@Modifiying``` 을 붙이면 된다.
+
+@Modifiying 을 붙이지 않으면 런타임 예외가 발생한다. 
+
+```@Modifiying(clearAutomatically)``` 을 사용하면 자동으로 영속성 컨텍스트를 초기화 해준다.
+
+## 페이징과 정렬
+스프링 데이터 JPA 에서는 쿼리 메소드에 페이징과 정렬 기능을 사용할 수 있도록 2가지 파라미터를 제공한다
+
+* org.springframework.data.domain.Sort : 정렬 기능
+* org.springframework.data.domain.Pageable : 페이징 기능(내부에 sort 포함)
+
+``` 
+Page<Member> 
+
