@@ -7,15 +7,57 @@ QueryDSL 은 컴파일할 경우 @Entity 와 @Emabdable 등의 어노테이션�
 이 Q 클래스 기반으로 쿼리를 작성하게 된다. 
 
 # 설정
+## maven
+버젼은 스프링부트에서 관리해준다.
+
+메이븐의 경우 Q 클래스를 컴파일이 아닌 generate sources and update folders 를 실행해야 Q 클래스가 생성된다.
+
+```<outputDirectory>target/generated-sources/java</outputDirectory>``` 에서 설정한 위치에 Q 클래스가 생성되는데 target 은 기본이 gitIgnore 라 괜찮지만 그 외의 다른 경로의 경우 깃에 포함되지 않도록 주의해야 한다. 
+
+```
+<!-- QueryDSL-->
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+		</dependency>
+```
+
+```
+<plugin>
+	<groupId>com.mysema.maven</groupId>
+		<artifactId>apt-maven-plugin</artifactId>
+		<version>1.1.3</version>
+		<executions>
+			<execution>
+				<goals>
+					<goal>process</goal>
+				</goals>
+					<configuration>
+						<outputDirectory>target/generated-sources/java</outputDirectory>
+						<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+							<options>
+								<querydsl.entityAccessors>true</querydsl.entityAccessors>
+							</options>
+					</configuration>
+			</execution>
+		</executions>
+</plugin>
+```
+
 ```
 @Configuration 
-public class QuerydslConfig{
+public class QueryDslConfig{
     @PersistenceContext
     private EntityManager em;
 
     @Bean
     public JPAQueryFactory jpaQueryFactory(){
-        return new JPAQueryFactory(entityManager);
+        return new JPAQueryFactory(em);
     }
 }
 ```
