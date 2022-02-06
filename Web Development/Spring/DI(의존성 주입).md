@@ -76,7 +76,7 @@ Spring DI 컨테이너가 관리하는 객체를 빈(bean)이라고 하고, 이 
 # XML 설정
 
 ## property 태그
-Setter 메서드를 통해 의존관계가 있는 Bean을 주입하려면 <property> 태그를 사용할 수 있다.
+Setter 메서드를 통해 의존관계가 있는 Bean을 주입하려면 ```<property>``` 태그를 사용할 수 있다.
 
 * ref 속성은 사용하면 Bean 이름을 이용해 주입할 Bean을 찾는다
 * value 속성은 단순 값 또는 Bean이 아닌 객체를 주입할 때 사용한다
