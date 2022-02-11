@@ -3,15 +3,15 @@
 배운 것들을 정리하는 repository 입니다.
 
 ## progress
-* JPA
 * 모던 자바 인 액션
 * 디자인 패턴
 
 ## ToDo
-* Docker
-* 쿠버네티스
+* TDD, 단위 테스트
 * effective java 3/E
 * 클린코드
+* Docker
+* 쿠버네티스
 * NoSQL
 
 ## Done
