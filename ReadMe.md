@@ -5,8 +5,10 @@
 ## progress
 * 모던 자바 인 액션
 * 디자인 패턴
+* 정보처리기사
 
 ## ToDo
+* Transaction, spring proxy
 * TDD, 단위 테스트
 * effective java 3/E
 * 클린코드
@@ -47,3 +49,4 @@
 * [Spring MVC](https://github.com/yhsim98/TIL/blob/master/Web%20Development/Spring/Spring%20MVC.md)
 * [JSON, XML](https://github.com/yhsim98/TIL/blob/master/Web%20Development/Spring/JSON%2C%20XML.md)
 
+등등
