@@ -1,4 +1,4 @@
-RequestContextHolder 는 Spring에서 전역으로 Request에 대한 정보를 가져오고자 할 때 사용하는 유틸성 클래스이다.
+RequestContextHandler 는 Spring에서 전역으로 Request에 대한 정보를 가져오고자 할 때 사용하는 유틸성 클래스이다.
 
  
 
