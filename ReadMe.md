@@ -8,13 +8,18 @@
 * 정보처리기사
 
 ## ToDo
-* Transaction, spring proxy
+* spring Transaction, spring proxy
 * TDD, 단위 테스트
+* spring 2, 3, 4
 * effective java 3/E
 * 클린코드
 * Docker
 * 쿠버네티스
 * NoSQL
+* redis
+* kafka
+* 이걸 언제 다하지
+
 
 ## Done
 ### MD 
