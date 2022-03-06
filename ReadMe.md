@@ -5,7 +5,7 @@
 ## progress
 * 모던 자바 인 액션
 * 디자인 패턴
-* 정보처리기사
+* [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
 * spring Transaction, spring proxy
