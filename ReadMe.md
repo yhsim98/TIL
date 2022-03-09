@@ -4,13 +4,12 @@
 
 ## progress
 * 모던 자바 인 액션
-* spring Transaction
+* spring Transaction, spring proxy
 * 디자인 패턴
 * 학교 강의
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
-* spring proxy
 * TDD, 단위 테스트
 * spring 2, 3, 4
 * effective java 3/E

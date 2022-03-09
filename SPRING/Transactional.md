@@ -9,5 +9,10 @@ https://mangkyu.tistory.com/154
 하지만 JDBC가 아닌 Hibernate 와 같은 기술을 사용한다면 Connection이 아닌 Session 객체를 사용하기 때문에 문제가 생길 수 있다. 이러한 기술 종속적인 문제를 해결하기 위해 Spring은 트랜잭션 관리 부분을 추상화한 기술을 제공하고 있다.
 
 ## 트랜잭션 추상화
+spring은 트랜잭션 기술의 공통점을 담은 트랜잭션 추상화 기술을 제공한다. 이를 통해 기술에 종속적인 코드가 아닌 일관된 트랜잭션 처리가 가능하다.
+
 [](!https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6eLCk%2Fbtq5gFwQO4x%2FKT2qebNokRvImqLY6iKcK0%2Fimg.png)
+
+## AOP를 이용한 트랜잭션 분리
+@Transactional 을 통하여 aop를 적용하여 비즈니스 로직과 트랜잭션 처리 로직을 분리할 수 있게 되었다.
 
