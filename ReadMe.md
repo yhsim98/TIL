@@ -5,6 +5,7 @@
 ## progress
 * 모던 자바 인 액션
 * spring Transaction, spring proxy
+* JUnit5
 * 디자인 패턴
 * 학교 강의
 * [PS](https://github.com/yhsim98/PS-)
