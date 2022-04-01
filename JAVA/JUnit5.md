@@ -34,3 +34,54 @@ void 정책_수정(){
 
 기본적으로 테스트 이름은 메소드 이름을 따라간다. 하지만 메소드 이름은 그대로 둔 채 테스트 이름을 바꾸고 싶을 때 이 어노테이션을 사용한다.
 
+## @BeforeEach
+각각의 테스트 메소드가 실행되기 전 실행되어야 하는 메소드를 명시해준다.
+
+``@Test``, ``@RepeatedTest``, ``@ParameterizedTest``, ``@TestFactory``가 붙은 테스트 메소드가 실행하기 전에 실행된다. JUnit4의 ``@Before``와 같은 역할을 한다.
+
+Mockup 데이터 세팅 등에 사용한다
+
+## @AfterEach
+``@Test``, ``@RepeatedTest``, ``@ParameterizedTest``, ``@TestFactory``가 붙은 테스트 메소드가 실행된 후에 실행된다.
+
+## @BeforeAll, @AfterAll
+모든 테스트가 실행되기 전 혹은 후 한번만 실행된다.
+
+## @Nested
+test클래스안에 Nested 테스트 클래스를 작성할 때 사용되며, static이 아닌 중첩 클래스, 즉 Inner 클래스여야만 한다. 테스트 인스턴스 라이프사이클이 per-class로 설정되어 있지 않다면 ```@BeforeAll``, ``@AfterAll``가 동작하지 않으니 주의하자.
+
+## @Tag 
+테스트를 필터링할 때 사용한다. 클래스 또는 메소드 레벨에 사용한다
+
+## @Disabled
+테스트 클래스나, 메소드의 테스트를 비활성화한다. JUnit4의 ``@Ignore``과 같다
+
+## @Timeout
+주어진 시간 안에 테스트가 끝나지 않으면 실패한다
+
+## @ExtendWith
+extension을 등록한다. 이 어노테이션은 상속된다. 
+
+## @RegisterExtension
+필드를 통해 extension을 등록한다. 
+
+## @TempDir
+필드 주입이나 파라미터 주입을 통해 임시적인 디렉토리를 제공할 때 사용한다.
+
+## 메타 어노테이션과 컴포즈 어노테이션
+JUnit Jupiter 어노테이션은 메타 어노테이션처럼 사용된다. 
+
+자동으로 메타 어노테이션을 상속하는 자기만의 컴포즈 어노테이션을 정의할 수 있다.
+
+코드에다 ``@Tag("fast")`` 보다는 ``@Fast``를 만든 다음 안에 넣는다
+
+``
+@Target()
+@Retention
+@Tag("fast")
+@SpringBootStarter
+public @interface Fast{}
+``
+
+안에 여러 다른 어노테이션을 넣어 커스텀하여 사용할 수 있다
+
