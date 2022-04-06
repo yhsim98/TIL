@@ -3,6 +3,7 @@
 배운 것들을 정리하는 repository 입니다.
 
 ## progress
+* 중간고사 준비
 * 모던 자바 인 액션
 * spring Transaction, spring proxy
 * JUnit5
@@ -12,7 +13,6 @@
 
 ## ToDo
 * TDD, 단위 테스트
-* spring 2, 3, 4
 * effective java 3/E
 * 클린코드
 * Docker
@@ -20,7 +20,8 @@
 * NoSQL
 * redis
 * kafka
-* 이걸 언제 다하지
+* kotlin 
+* 이걸 언제 다하지;;
 
 
 ## Done
