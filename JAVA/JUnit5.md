@@ -85,3 +85,18 @@ public @interface Fast{}
 
 안에 여러 다른 어노테이션을 넣어 커스텀하여 사용할 수 있다
 
+
+# 테스트 클래스와 메소드
+테스트 클래스란 최상위 클래스, 스태틱 멤버 클래스, @Nested 클래스에 적어도 한개의 **@Test** 어노테이션이 달린 테스트 메소드가 포함되어있는 걸 말한다. 테스트 클래스는 **abstract**이면 안되고, 하나의 생성자가 있어야 한다.
+
+테스트 메소드란 @Test, @TeapetedTest 등등 같은 메타 어노테이션이 붙은 메소드를 의미한다.
+
+라이프사이클 메소드란 @BeforeAll, @AfterAll, @BeforeEach, @AfterEach 같은 메타 어노테이션이 메소드에 붙여진 메소드를 말한다.
+
+테스트 메소드와 라이크사이클 메소드는 테스트할 클래스,상혹한 부모 클래스 또는 인터페이스에 선언된다. 추가로 테스트 메소드와 라이크사이클 메소드는 abstract 선언하면 안되고, 어떠한 값도 리턴되서는 안된다.
+
+참고로 접근제어자는 public
+
+# Assertions
+Junit Jupiter는 JUnit4로부터 온 assertion 메소드와 새롭게 자바 8 람다 표현식으로 추가된 메소드들이 있다. 모든 JUnit Jupiter assertion은 정적 메소드이며, Assertions 클래스 안에 있다.
+
