@@ -854,3 +854,21 @@ hashcode 도 재정의해줘야 함
 ## 영속성 컨텍스트와 JPQL
 JPQL 로 엔티티를 조회할 경우 영속성 컨텍스트에서 관리되지만 엔티티가 아니면 영속성 컨텍스트에서 관리되지 않는다.
 
+# 추가
+
+## @Where
+테이블에 ``@Where`` 어노테이션을 추가하면 일괄적인 Where 조건이 적용된다.
+
+```
+@Entity
+@Where(clause = "column_name=condition")
+public Entity{
+}
+```
+
+엔티티에 해당 어노테이션을 붙이면 
+
+해당 엔티티를 조회하는 모든 쿼리에 설정한 where 문이 붙게 된다.
+
+Lazy Loading을 하는 경우에도 해당 Where 문이 적용되게 된다.
+
