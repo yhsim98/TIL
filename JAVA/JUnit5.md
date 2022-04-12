@@ -98,5 +98,17 @@ public @interface Fast{}
 참고로 접근제어자는 public
 
 # Assertions
-Junit Jupiter는 JUnit4로부터 온 assertion 메소드와 새롭게 자바 8 람다 표현식으로 추가된 메소드들이 있다. 모든 JUnit Jupiter assertion은 정적 메소드이며, Assertions 클래스 안에 있다.
+Junit Jupiter는 JUnit4로부터 온 assertion 메소드와 새롭게 자바 8 람다 표현식으로 추가된 메소드들이 있다. 
+
+모든 JUnit Jupiter assertion은 정적 메소드이며, Assertions 클래스 안에 있다.
+
+``assertEquals``, ``assertTimeout`` 등이 있다.
+
+AssertJ, Hamcresst, Truth 등 좋은 써드 파티 라이브러리도 많다.
+
+
+# 테스트 실행 조건
+JUnit Jupiter 에 있는 ``ExecutionCondition``API는 개발자가 특정 조건에 따라 테스트를 진행할지 여부를 결정한다.
+
+이유를 적고 싶다면 ``disabledReason``속성을 지정하면 된다.
 
