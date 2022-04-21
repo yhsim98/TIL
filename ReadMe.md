@@ -3,15 +3,14 @@
 배운 것들을 정리하는 repository 입니다.
 
 ## progress
-* 중간고사 준비
 * 모던 자바 인 액션
-* spring Transaction, spring proxy
 * JUnit5
-* 디자인 패턴
 * 학교 강의
+* 자소서 작성
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
+* 디자인패턴
 * TDD, 단위 테스트
 * effective java 3/E
 * 클린코드
