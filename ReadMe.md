@@ -19,7 +19,6 @@
 * NoSQL
 * redis
 * kafka
-* kotlin 
 * 이걸 언제 다하지;;
 
 
