@@ -6,7 +6,6 @@
 * 모던 자바 인 액션
 * JUnit5
 * 학교 강의
-* 자소서 작성
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
