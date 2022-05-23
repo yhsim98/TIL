@@ -4,7 +4,6 @@
 
 ## progress
 * 모던 자바 인 액션
-* JUnit5
 * 학교 강의
 * [PS](https://github.com/yhsim98/PS-)
 
