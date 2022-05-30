@@ -18,8 +18,6 @@
 * NoSQL
 * redis
 * kafka
-* 이걸 언제 다하지;;
-
 
 ## Done
 ### MD 
