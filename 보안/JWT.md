@@ -111,4 +111,29 @@ jwt를 사용하게 되면 보통 access token을 발급하여 사용하게 된�
 
 access token의 유효기간은 짧게 설정하고 refresh token의 유효기간은 길게 설정한다.
 
-access token이 
+refresh token을 별개의 저장소(redis)에 저장한다면 서버에서 강제로 토큰 만료도 가능하지만, 이 경우 추가적인 I/O작업이 일어나기 때문에 JWT의 장점이 퇴색된다.
+
+## Refresh Token이 탈취당할 경우
+Refresh Token이 탈취당하게 된다면 문제가 생긴다.
+
+공격자가 Refresh Token을 사용하여 지속적으로 Access Token을 발급받으면 서버에서는 막을 수 없다.
+
+그래서 나온 방법이 DB에 각 Access Token과 Refresh Token 쌍을 저장하는 것이다.
+
+정상적인 사용자는 Access Token이 만료됬을 경우 Refresh Token을 이용하여 Access Token과 Refresh Token을 새로 발급한다.
+
+이때 만약 공격자가 Refresh Token을 탈취하여 Access Token을 갱신하려 할 때 이미 해당 토큰은 사용되었기 때문에 탈취당했다고 가정하고 두 토큰을 모두 만료시킨다.
+
+만약 공격자가 먼저 Access Token을 발급받았다 하더라도 정상적인 사용자가 발급요청하면 만료되기 때문에 상관없다.
+
+이 방식은 사용자와 Access, Refresh Token이 1:1로 매칭 시에만 가능한 방법인데, 웹과 모바일 모두 지원할 경우 http header의 `user-agent`를 통하여 구분하여 보관하면 될 것 같다.
+
+# Session과 Cookie 인증 방식
+
+
+
+
+
+
+
+

@@ -4,11 +4,9 @@
 
 ## progress
 * 모던 자바 인 액션
-* 학교 강의
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
-* 디자인패턴
 * 단위 테스트
 * effective java 3/E
 * 토비의 스프링
@@ -36,8 +34,8 @@
 * [JPA](https://github.com/yhsim98/TIL/tree/master/JPA)
 ### Spring
 ### JAVA
-* [JAVA]()
-* [모던 자바 인 액션]()
+* [JAVA](https://github.com/yhsim98/TIL/tree/master/JAVA)
+* [모던 자바 인 액션](https://github.com/yhsim98/TIL/blob/master/JAVA/%EB%AA%A8%EB%8D%98%20%EC%9E%90%EB%B0%94%20%EC%9D%B8%20%EC%95%A1%EC%85%98.md)
 
 
 
