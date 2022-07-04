@@ -4,6 +4,7 @@
 
 ## progress
 * 모던 자바 인 액션
+* 도커
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
@@ -11,7 +12,6 @@
 * effective java 3/E
 * 토비의 스프링
 * 클린코드
-* Docker
 * 쿠버네티스
 * NoSQL
 * redis
