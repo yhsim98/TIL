@@ -12,7 +12,6 @@ Test Engine API를 제공해 테스트 프레임워크를 개발할 수 있다
 ## JUnit Jupiter
 JUnit5에서 테스트를 작성하고 확장하기 위한 새로운 프로그래밍 모델과 확장 모델의 조합
 
-
 ## 요구사항
 JUnit5는 java8 부터 지원하며, 이전 버전으로 작성된 테스트 코드여도 컴파일이 정상적으로 지원된다.
 
@@ -34,6 +33,45 @@ void 정책_수정(){
 
 기본적으로 테스트 이름은 메소드 이름을 따라간다. 하지만 메소드 이름은 그대로 둔 채 테스트 이름을 바꾸고 싶을 때 이 어노테이션을 사용한다.
 
+## @DisplayNameGeneration
+클래스 위에 붙이면 테스트 메소드의 이름을 정책에 맞게 변형시켜 줍니다.
+
+``
+@DisplayNameGeneration({class<? enxtends DisplayNameGenerator>})
+Class TestClass{
+
+}
+``
+
+가능한 설정값
+* Standard : 기존 클래스, 메소드 명
+* Simple : 괄호를 제외
+* ReplaceUnderscores : _ 를 공백으로 바꿉니다
+* IndicativeSentences : 클래스명 + ","(구분자) + 메소드명으로 바꿉니다
+    * @IndicativeSentencesGeneration을 이용하여 구분자를 커스텀할 수 있습니다
+
+``
+@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+Class TestClass{
+
+}
+
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+Class TestClass{
+
+}
+
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+Class TestClass{
+
+}
+
+@IndicativeSentencesGeneration(seperator = "->", generator = DisplayNameGenerator.ReplaceUnderscores.class)
+Class testClass{
+
+}
+``
+
 ## @BeforeEach
 각각의 테스트 메소드가 실행되기 전 실행되어야 하는 메소드를 명시해준다.
 
@@ -42,13 +80,15 @@ void 정책_수정(){
 Mockup 데이터 세팅 등에 사용한다
 
 ## @AfterEach
-``@Test``, ``@RepeatedTest``, ``@ParameterizedTest``, ``@TestFactory``가 붙은 테스트 메소드가 실행된 후에 실행된다.
+``@Test``, ``@RepeatedTest``, ``@ParameterizedTest``, ``@TestFactory``가 붙은 테스트 메소드가 실행된 후에 실행된다. JUnit4의 ``@After``와 같은 역할을 한다.
 
 ## @BeforeAll, @AfterAll
 모든 테스트가 실행되기 전 혹은 후 한번만 실행된다.
 
 ## @Nested
-test클래스안에 Nested 테스트 클래스를 작성할 때 사용되며, static이 아닌 중첩 클래스, 즉 Inner 클래스여야만 한다. 테스트 인스턴스 라이프사이클이 per-class로 설정되어 있지 않다면 ```@BeforeAll``, ``@AfterAll``가 동작하지 않으니 주의하자.
+내부 클래스 테스트 용도
+
+test클래스안에 Nested 테스트 클래스를 작성할 때 사용되며, static이 아닌 중첩 클래스, 즉 Inner 클래스여야만 한다. [테스트 인스턴스 라이프사이클](#테스트-LifeCycle)이 `per-class`로 설정되어 있지 않다면 ```@BeforeAll``, ``@AfterAll``가 동작하지 않으니 주의하자.
 
 ## @Tag 
 테스트를 필터링할 때 사용한다. 클래스 또는 메소드 레벨에 사용한다
