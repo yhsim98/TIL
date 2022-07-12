@@ -1,4 +1,5 @@
-https://donghyeon.dev/junit/2021/04/11/JUnit5-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C/
+# Junit 동작 방식
+
 
 # JUnit5 컴포넌트
 ## JUnit Platform
@@ -140,12 +141,21 @@ public @interface Fast{}
 # Assertions
 Junit Jupiter는 JUnit4로부터 온 assertion 메소드와 새롭게 자바 8 람다 표현식으로 추가된 메소드들이 있다. 
 
-모든 JUnit Jupiter assertion은 정적 메소드이며, Assertions 클래스 안에 있다.
+모든 JUnit Jupiter assertion은 정적 메소드이다.
 
 ``assertEquals``, ``assertTimeout`` 등이 있다.
 
 AssertJ, Hamcresst, Truth 등 좋은 써드 파티 라이브러리도 많다.
 
+## AssertTimeoutPreemptively
+제공된 executable이나 supplier를 `다른 스레드`에서 실행한다. 때문에 실행된 코드가 ThreadLocal에 의존하는 경우 사이드이펙트가 일어날 수 있다
+
+예로 스프링에서 transactional 테스트를 수행하는 경우가 있다.
+* Spring의 테스트는 트랜잭션의 상태를 `ThreadLocal`을 이용하여 현재 상태를 테스트 메소드가 실행하기 전에 저장해둔다.
+    * 각 thread는 각자의 threadLocal을 가진다
+* assertTimeoutPreemptively는 `다른 스레드`에서 제공된 내용을 수행한다
+* 결과적으로 assertTimeoutPreemptively()에 제공된 executable이나 supplier가 `트랜잭션에 참여하는 스프링 컴포넌트를 호출`하게 되면 이 컴포넌트는 `테스트가 끝난 후 롤백되지 않는다.`
+    * 롤백할 수 있는 정보가 없나?
 
 # 테스트 실행 조건
 JUnit Jupiter 에 있는 ``ExecutionCondition``API는 개발자가 특정 조건에 따라 테스트를 진행할지 여부를 결정한다.
@@ -160,5 +170,6 @@ JUnit Jupiter 에 있는 ``ExecutionCondition``API는 개발자가 특정 조건
 
 
 
-
-
+## reference
+https://donghyeon.dev/junit/2021/04/11/JUnit5-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C/
+https://goodgid.github.io/How-JUnit-Works/
