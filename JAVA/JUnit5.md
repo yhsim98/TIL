@@ -77,22 +77,22 @@ Class TestClass{
     * @IndicativeSentencesGeneration을 이용하여 구분자를 커스텀할 수 있습니다
 
 ``
-@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@DisplayNameGeneration(DisplayNameGenerator.Simple.class)  
 Class TestClass{
 
 }
 
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)  
 Class TestClass{
 
 }
 
-@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)  
 Class TestClass{
 
 }
 
-@IndicativeSentencesGeneration(seperator = "->", generator = DisplayNameGenerator.ReplaceUnderscores.class)
+@IndicativeSentencesGeneration(seperator = "->", generator = DisplayNameGenerator.ReplaceUnderscores.class)  
 Class testClass{
 
 }

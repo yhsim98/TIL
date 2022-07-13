@@ -5,7 +5,7 @@
 
 * 자바의 클래스 파일은 바이트 코드로 컴파일되어 static 영역에 위치하게 됩니다. 
 * 그로 인해 클래스 이름만 알고 있으면 해당 영역을 탐색하여 클래스에 대한 정보를 가져올 수 있습니다
-* 컴파일시 해당 클래스가 없더라도 런타임에 해당 클래스르르 로딩하여 메타정보를 가져올 수 있습니다
+* 컴파일시 해당 클래스가 없더라도 런타임에 해당 클래스를 로딩하여 메타정보를 가져올 수 있습니다
 
 SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없어 호출할 수 없지만, 실제로 hidden API가 존재하기 때문에 리플렉션을 이용해서 호출할 수 있습니다.
 
@@ -14,6 +14,7 @@ SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없�
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20220110121120/javalang.jpg)
 
 ## 메소드들
+* `.getAnnotations()` : 어노테이션을 가져올 수 있다
 * `.getClass()` : 오브젝트가 속한 클래스의 이름을 얻을 수 있다
 * `.getConstructors()` : 오브젝트가 속한 클래스의 public 생성자를 얻을 수 있다
 * `.getMethods()` : 오브젝트가 속한 클래스의 공개된 메소드들을 얻을 수 있다
@@ -58,6 +59,7 @@ SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없�
 * IDE Class를 탐색하기 위해 Reflection을 주로 사용합니다.
     * 객체를 생성하면 내부 메소드를 자동완성으로 제공하는 것도 reflection을 사용한 기술이라고 합니다 
 * lombok 에서도 사용
+* Spring DI를 위해 spring container에서도 사용
 
 ## 장단점
 장점
@@ -78,3 +80,5 @@ SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없�
 아직 왜 필요한지 잘 모르겠습니다.
 
 정말 필요한 상황을 격어보면 확실히 이해가 될 것 같네요.
+
+알것같기도하고..
