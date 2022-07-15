@@ -30,7 +30,7 @@ SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없�
 ## private한 필드나 메소드 접근
 `.setAccessible(true);`를 이용하면 private이어도 접근 가능하다
 
-``
+```
 @Test
     public void privateMethodAccessTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // given
@@ -46,7 +46,7 @@ SDK에 API가 공개되지 않은 경우 Android Studio에서 참조할 수 없�
         assertTrue(isFull, "인원 다 찼는데 안잡힘");
         assertFalse(isNotFull, "인원 다 안찼는데 잡힘");
     }
-``
+```
 
 ## 사용예시
 * Junit4에서 `@Test`어노테이션이 있는 클래스와 메소드들을 찾아볼 때, `Reflection` 기술을 사용 후 유닛 테스트가 동작할 때 `@Test`어노테이션이 붙은 것을 호출한다
