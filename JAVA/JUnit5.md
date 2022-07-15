@@ -2,12 +2,14 @@
 Junit이 테스트를 수행하는 방식은 다음과 같다
 
 1. 다음 조건의 클래스를 읽어온다
+    * junit의 annotaion processor가 java의 reflection을 통해 수행한다
     * `@Test` 어노테이션이 존재
     * Access Level : public
         * JUnit 5에서는 없어도 됨
     * return type : void
     * parameter 존재 x
-        * junit의 annotaion processor가 java의 reflection을 통해 수행한다
+        * JUnit 5에서는 정해진 파라미터는 있어도 됨
+        
 2. 테스트 클래스의 인스턴스를 하나 만든다
 3. `@Before`이 붙은 메소드가 있으면 실행한다.
     * JUnit5는 `@BeforeEach`
@@ -62,12 +64,12 @@ void 정책_수정(){
 ## @DisplayNameGeneration
 클래스 위에 붙이면 테스트 메소드의 이름을 정책에 맞게 변형시켜 줍니다.
 
-``
+```
 @DisplayNameGeneration({class<? enxtends DisplayNameGenerator>})
 Class TestClass{
 
 }
-``
+```
 
 가능한 설정값
 * Standard : 기존 클래스, 메소드 명
@@ -76,7 +78,7 @@ Class TestClass{
 * IndicativeSentences : 클래스명 + ","(구분자) + 메소드명으로 바꿉니다
     * @IndicativeSentencesGeneration을 이용하여 구분자를 커스텀할 수 있습니다
 
-``
+```
 @DisplayNameGeneration(DisplayNameGenerator.Simple.class)  
 Class TestClass{
 
@@ -96,7 +98,7 @@ Class TestClass{
 Class testClass{
 
 }
-``
+```
 
 ## @BeforeEach
 각각의 테스트 메소드가 실행되기 전 실행되어야 하는 메소드를 명시해준다.
@@ -242,10 +244,10 @@ maven의 프로파일을 설정하여 build시 실행 여부도 설정할 수 �
 * 인터페이스의 `default`메소드에서도 사용하지 않아도 된다
 * `@Nested` 테스트 클래스에서 `@BeforeAll`이나 `@AfterAll`메소드를 사용할 수 있게 해준다
 
-`
+```
 @TestInsatance(LifeCycle.PER_CLASS) // default는 PER_METHOD
 class Test{}
-`
+```
 
 환경변수를 설정하면 전체 테스트 클래스에 적용된다
 `junit.jupiter.testinstance.lifecycle.default = per_class`
@@ -302,17 +304,76 @@ JUnit jupiter의 주요 변화로 `테스트 클래스의 생성자와 메소드
 ## 다른 리졸버 사용
 `@ExtendWith`을 통해 상속하면 된다.
 
-`
+```
 @ExtendWith(RandomParametersExtension.class)
 class Test{}
-`
+```
 
 `MockitoExtension`과 `SpringExtension`등이 있다.
 
 # `@RepeatedTest`
 명시된 숫자로 테스트를 얼마나 반복적으로 실행할지 지정해줄 수 있다
 
-반복 테스트의 호출은 보통의 `@Test`메소드들과 똑같이 동작한다
+반복 테스트의 호출은 보통의 `@Test`메소드들과 똑같이 동작한다.
+* 매 반복마다 test class의 인스턴스 생성
+
+```
+@RepeatedTest(10)  
+void Test(){}
+```
+
+각각의 반복되는 테스트에 대해 보여줄 Display name도 설정할 수 있다.
+* DisplayName
+* {currentRepetition}
+* {totalRepetitions}
+
+```
+static int a = 0;  
+@RepeatedTest(value = 3, name = "{displayName} {currentRepetition}")
+@DisplayName("repeat test")      
+void repeatTest(RepetitionInfo repetitionInfo){
+    a += 1;
+    assertTrue(repetitionInfo.getTotalRepetitions() == 3);
+    assertEquals(a, repetitionInfo.getCurrentRepetition());
+}
+```
+
+`RepetitionInfo` 인스턴스를 주입하면 현재 반복횟수와 총 반복횟수를 알 수 있다.
+
+
+# 파라미터화 테스트
+JUnit5부터 적용
+
+각각 다른 인자로 여러 번 테스트를 돌린다. `@ParameterizedTest`어노테이션 사용.
+
+호출 시 사용될 인자를 적어도 하나는 적어줘야 한다.
+
+```
+@ParameterizedTest(name = "{index} {displayName} message={0}")
+@ValueSource(strings = {"a", "b", "c"})
+@DisplayName("parameter test")
+void parameterTest(String s){
+}
+// 3번 호출됨
+```
+
+`@ValueSource`외에도 파라미터를 주입할 수 있는 다양한 어노테이션들이 있습니다.
+
+만약 타입이 다르다면 경우에 따라 묵시적으로 인자를 변환하여 convert 해줍니다.
+
+만약 특정한 객체로 원하거나 한다면 `@ConvertWith`어노테이션을 사용하여 명시적으로 지정할 수 있습니다.
+* `SimpleArgumentConverter`를 상속받아 정의해야 합니다.
+
+# properties
+`junit-platform.properties`를 resources 아래에 만들어 이것을 통해 설정이 가능하다.
+
+resources를 테스트 리소스 디렉토리로 하는 것이 필요하다
+
+# JUnit 5 확장 모델
+Junit4와 비교해서 확장 모델이 단일적이고 일관성이 있어졌습니다.
+
+`@ExtnedWith`를 이용하여 선언적으로 Extension을 등록할 수 있습니다.
+
 
 ## reference
 https://donghyeon.dev/junit/2021/04/11/JUnit5-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C/
