@@ -251,7 +251,68 @@ class Test{}
 `junit.jupiter.testinstance.lifecycle.default = per_class`
 
 # Nested Tests
+테스트 그룹 사이의 관계를 표현할 수 있게 해준다
 
+내부 클래스에 `@Nested`를 붙이면 트리 구조가 된다.
+
+non-static인 이너 클래스에만 붙일 수 있다. 이너 클래스에는 static을 가질 수 없기 때문에 `@BeforeAll`, `@AfterAll`은 동작하지 않는다
+
+# 테스트 실행 순서 바꾸기
+통합 테스트나, 테스트 순서가 중요한 `함수형 테스트`의 경우 실행 순서를 바꾸고 싶을 수 있다.
+
+`@TestMethodOrder`어노테이션을 이용하여 순서를 지정할 수 있다. 내장된 MethodOrderer를 이용하거나 직접 구현하면 된다
+
+* `DisplayName` : displayName 기반 정렬
+* `MethodName` : 메소드 이름으로 정렬
+* `OrderAnnotation` : `@Order`어노테이션에 명시된 순서대로 정렬
+* `Random` : 랜덤으로 정렬
+
+`junit.jupiter.testmethod.order.default`설정 파라미터를 이용하여 디폴트로 사용한 MethodOrder를 설정할 수 있다. 테스트 클래스에 `@TestMethodOrder`가 없으면 파라미터에 준 값으로 모든 테스트들에 디폴트 순서를 사용한다
+
+# 생성자와 메소드 의존성 주입
+Junit5버전 이전에는 테스트 클래스에 생성자나 메소드에 파라미터를 갖지 못했다.
+
+JUnit jupiter의 주요 변화로 `테스트 클래스의 생성자와 메소드가 이제는 파라미터를 가질 수 있도록 변경되었다.`
+
+이것을 통해
+* 코드의 유연성
+* 생성자와 메소드에 의존성 주입  
+을 가능하게 하였다.
+
+`ParameterResolver`는 런타임시 동적으로 파라미터를 결정하는 테스트 익스텐션에 관한 API가 정의되어 있다. 
+
+테스트 클래스의 생성자나, 메서드나, 라이프사이클 메서드가 파라미터를 받고 싶다면, 파라미터는 `ParameterResolver`를 등록함으로써 런타임시 결정된다.
+
+## ParameterResolver
+3개의 내장 리졸버가 있다
+
+* `TestInfoParameterResolver`
+    * 생성자나 메소드 파라미터가 TestInfo의 타입이라면 TestInfoParameterResolver가 현재 컨테이너나, 테스트에 일치하는 겂을 `TestInfo`인스턴스로 제공해 준다.
+    * `TestInfo`를 통해 현재 컨테이너 또는 테스트에 관한 DisplayName, 테스트 클레스, 메소드, 관련 태그들의 테스트 정보를 가져올 수 있다
+    * `void test(TestInfo testInfo){ testInfo.getDisplayName(); }`
+* `RepetitionalInfoParameterResolver`
+    * `@RepeatedTest`, `@BeforeEach`, `@AfterEach`의 어노테이션이 붙은 메소드 파라미터는 `RepetitionInfo`의 타입이며 
+    * `RepetitionInfoParameterResolver`가 `RepetitionInfo` 인스턴스를 제공해준다
+    * `RepetitionInfo`는 현재 반복하고 있는 정보나, `@RepeatedTest`와 관련된 반복의 총 갯수의 정보를 가져올 때 사용한다. 
+    * 그러나 현재 컨텍스트 외부에 있는 `@RepeatedTest`를 찾아내진 못한다
+* `TestReporterParameterResolver`
+    * TestReporter 타입의 파라미터를 사용해야 할 때 사용
+    * 현재 실행중인 테스트에 관한 추가적인 데이터를 발행해야할 때 사용
+
+## 다른 리졸버 사용
+`@ExtendWith`을 통해 상속하면 된다.
+
+`
+@ExtendWith(RandomParametersExtension.class)
+class Test{}
+`
+
+`MockitoExtension`과 `SpringExtension`등이 있다.
+
+# `@RepeatedTest`
+명시된 숫자로 테스트를 얼마나 반복적으로 실행할지 지정해줄 수 있다
+
+반복 테스트의 호출은 보통의 `@Test`메소드들과 똑같이 동작한다
 
 ## reference
 https://donghyeon.dev/junit/2021/04/11/JUnit5-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C/
