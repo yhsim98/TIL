@@ -2,7 +2,7 @@
 Junit이 테스트를 수행하는 방식은 다음과 같다
 
 1. 다음 조건의 클래스를 읽어온다
-    * junit의 annotaion processor가 java의 reflection을 통해 수행한다
+    * junit의 annotaion processor가 java의 [reflection](https://github.com/yhsim98/TIL/blob/master/JAVA/Reflection.md)을 통해 수행한다
     * `@Test` 어노테이션이 존재
     * Access Level : public
         * JUnit 5에서는 없어도 됨
