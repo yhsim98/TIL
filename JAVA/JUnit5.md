@@ -124,7 +124,7 @@ PER_CLASS의 경우 static이지 않아도 된다.
 ## @Nested
 내부 클래스 테스트 용도
 
-test클래스안에 Nested 테스트 클래스를 작성할 때 사용되며, static이 아닌 중첩 클래스, 즉 Inner 클래스여야만 한다. [테스트 인스턴스 라이프사이클](#테스트-LifeCycle)이 `per-class`로 설정되어 있지 않다면 ```@BeforeAll``, ``@AfterAll``가 동작하지 않으니 주의하자.
+test클래스안에 Nested 테스트 클래스를 작성할 때 사용되며, static이 아닌 중첩 클래스, 즉 Inner 클래스여야만 한다. [테스트 인스턴스 라이프사이클](#테스트-LifeCycle)이 `per-class`로 설정되어 있지 않다면 ``@BeforeAll``, ``@AfterAll``가 동작하지 않으니 주의하자.
 
 ## @Tag 
 테스트를 필터링할 때 사용한다. 클래스 또는 메소드 레벨에 사용한다
@@ -180,9 +180,12 @@ Junit Jupiter는 JUnit4로부터 온 assertion 메소드와 새롭게 자바 8 �
 
 모든 JUnit Jupiter assertion은 정적 메소드이다.
 
-``assertEquals``, ``assertTimeout`` 등이 있다.
+``assertEquals``, ``assertTimeout``, ``assertAll`` 등이 있다.
 
 AssertJ, Hamcresst, Truth 등 좋은 써드 파티 라이브러리도 많다.
+
+## AssertTimeout
+제공된 executable이나 supplier를 실행한다. 만약 실행시간이 설정한 시간에 초과된다면 실패한다.
 
 ## AssertTimeoutPreemptively
 제공된 executable이나 supplier를 `다른 스레드`에서 실행한다. 때문에 실행된 코드가 ThreadLocal에 의존하는 경우 사이드이펙트가 일어날 수 있다
@@ -192,7 +195,6 @@ AssertJ, Hamcresst, Truth 등 좋은 써드 파티 라이브러리도 많다.
     * 각 thread는 각자의 threadLocal을 가진다
 * assertTimeoutPreemptively는 `다른 스레드`에서 제공된 내용을 수행한다
 * 결과적으로 assertTimeoutPreemptively()에 제공된 executable이나 supplier가 `트랜잭션에 참여하는 스프링 컴포넌트를 호출`하게 되면 이 컴포넌트는 `테스트가 끝난 후 롤백되지 않는다.`
-    * 롤백할 수 있는 정보가 없나?
 
 # Assumptions
 `assumeTrue`나 `assumingThat`등을 통해 테스트 실행조건을 지정할 수 있다.
