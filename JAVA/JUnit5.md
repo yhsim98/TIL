@@ -151,7 +151,7 @@ JUnit Jupiter 어노테이션은 메타 어노테이션처럼 사용된다.
 
 코드에다 ``@Tag("fast")`` 보다는 ``@Fast``를 만든 다음 안에 넣는다
 
-``
+```
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 // 어노테이션 타입의 메모리를 어디까지 보유할지를 설정
@@ -159,7 +159,7 @@ JUnit Jupiter 어노테이션은 메타 어노테이션처럼 사용된다.
 @Tag("fast")
 @SpringBootStarter
 public @interface Fast{}
-``
+```
 
 안에 여러 다른 어노테이션을 넣어 커스텀하여 사용할 수 있다
 
