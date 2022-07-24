@@ -75,3 +75,6 @@ Mockito는 BddMockito 클래스를 통해 BDD 스타일의 API를 제공합니�
 
 기존을 Mockito로는 given-when-then 패턴을 지키기 어려웠고, 이것을 해결하기 위해 BDDMockito가 등장했습니다.
 
+기존 BDD의 given에 해당하는 위치에 `when()`이 아닌 `given()`메서드를 사용할 수 있습니다.
+
+then에서 사용되는 `verify()`도 `then().should()`로 대체될 수 있습니다.
