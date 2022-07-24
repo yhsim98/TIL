@@ -8,14 +8,16 @@
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
-* 단위 테스트
-* effective java 3/E
+* effective java 3/E(보류)
 * 토비의 스프링
 * 클린코드
+* 클린 아키텍쳐
+* DDD
 * 쿠버네티스
 * NoSQL
 * redis
 * kafka
+
 
 ## Done
 ### MD 
