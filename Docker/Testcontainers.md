@@ -1,9 +1,12 @@
 # Testcontainers
 자동으로 컨테이너를 이용하여 테스트 환경을 구축해주고 테스트가 끝난다면 컨테이너를 종료해주는 프레임워크
 
-보다 Production에 가까운 테스트를 수행할 수 있다
+``멱등성``을 제공하여 보다 Production에 가까운 테스트를 수행할 수 있다
 
-당연히 docker가 설치되어 있어야
+당연히 docker가 설치되어 있어야 한다.
+https://www.testcontainers.org/supported_docker_environment/windows/
+
+
 
 ## 설치
 의존성을 주입하면 된다
