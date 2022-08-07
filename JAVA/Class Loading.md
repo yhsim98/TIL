@@ -108,7 +108,7 @@ JSL에 따르면 JVM에 클래스가 로딩되고 초기화될때는 순차적�
 * Resolve
     * Optional로 동작하는 부분
     * 심볼릭 메모리 레퍼런스를 메소드 영역에 있는 실제 레퍼런스로 교체
-        * {Name} object = new {Name}(); 에서 object 부분을 실제 인스턴스를 가리키게 한다 
+        * {Name} object = new {Name}(); 에서 object 부분을 실제 인스턴스를 가리키게 한다.
 
 ### 초기화
 static 변수의 값을 할당하는 과정, static 블럭이 수행된다.
