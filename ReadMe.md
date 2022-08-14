@@ -5,7 +5,8 @@
 ## progress
 * 모던 자바 인 액션
 * 도커
-* Test
+* 테스트 도구들
+* CS 스터디(운영체제)
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
@@ -13,7 +14,6 @@
 * 토비의 스프링
 * 클린코드
 * 클린 아키텍쳐
-* DDD
 * 쿠버네티스
 * NoSQL
 * redis
