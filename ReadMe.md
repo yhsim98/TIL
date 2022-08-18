@@ -3,18 +3,17 @@
 배운 것들을 정리하는 repository 입니다.
 
 ## progress
-* 모던 자바 인 액션
 * 도커
-* 테스트 도구들
-* CS 스터디(운영체제)
+* CS 스터디(네트워크)
+* 클린코드
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
+* TDD
 * effective java 3/E(보류)
 * 토비의 스프링
-* 클린코드
 * 클린 아키텍쳐
-* 쿠버네티스
+* k8s
 * NoSQL
 * redis
 * kafka
