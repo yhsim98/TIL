@@ -10,7 +10,7 @@
 
 ## ToDo
 * TDD
-* effective java 3/E(보류)
+* effective java 3/E
 * 토비의 스프링
 * 클린 아키텍쳐
 * k8s
