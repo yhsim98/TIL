@@ -14,7 +14,7 @@ JVM자체는 바이트 코드를 실행하는 표준이자 특정 벤더가 구�
 
 Oracle이 JVM 표준 스펙을 정해놓았고, 각 OS 개발사가 OS에 맞도록 JVM을 구현해놓았다
 
-!()[https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcxCukT%2FbtqNcFOzFZt%2FkqN6tQ5xwbAAounVQxfEJ1%2Fimg.png]
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcxCukT%2FbtqNcFOzFZt%2FkqN6tQ5xwbAAounVQxfEJ1%2Fimg.png)
 
 ## JRE
 자바 실행 환경(Java Runtime Environment)의 약자로 자바 어플리케이션을 실행할 수 있도록 구성된 배포판
