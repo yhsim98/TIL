@@ -54,6 +54,16 @@ requestId: '2bccf83a-9af8-4f29-ba7c-d28e20ff0d30'
 
 - 해당 글로벌 보조 인덱스를 통해
 
+# Local Secondary Index
+
+- 간단하게 설명하면, 같은 파티션 키 값에 다른 정렬 키
+
+![https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png)
+
+- DynamoDB는 파티션 키 값이 동일한 모든 항목을 연속적으로 저장합니다
+- 위 예에서는 특정 `ForumName` 에 의해 `query` 작업으로 해당 포럼의 모든 스레드를 즉시 찾을 수 있습니다
+- 그리고 동일한 파티션 키 값을 가진 항목 그룹 내에서는 항목이 정렬 키 값을 기준으로 정렬됩니다
+
 ## 파티션 키
 
 - Primary Key, 단일 primary key 이다

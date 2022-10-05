@@ -1,3 +1,6 @@
+[노션](https://faint-clarinet-b05.notion.site/MSA-Micro-Service-Architecture-a0c7f662524f41ae8a666e8b124aaafc
+)에 정리한 것 가져왔더니 이미지가 다 깨졌습니다..
+
 # MSA(Micro Service Architecture)
 
 마이크로서비스 아키텍처 스타일이란 단일 에플리케이션을 자체 프로세스로 실행되고 경량 메커니즘(주로 HTTP 리소스 API)으로 통신하는 작은 서비스들의 모음으로 개발하는 방식 - 마틴 파울러

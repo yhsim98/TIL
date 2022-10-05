@@ -2,10 +2,14 @@
 필요할 때 찾아보기 좋게 
 배운 것들을 정리하는 repository 입니다.
 
+[블로그](https://yhsim98.tistory.com/)
+
 ## progress
 * 도커
 * CS 스터디(네트워크)
 * 클린코드
+* MSA
+* Node, typescript
 * [PS](https://github.com/yhsim98/PS-)
 
 ## ToDo
@@ -22,7 +26,7 @@
 ## Done
 ### MD 
 * [MD 문서 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
-### HTML,CSS && JavaScript 
+### HTML,CSS
 * [HTML](https://github.com/yonghyeonsim/TIL/tree/master/HTML)
 * [CSS](https://github.com/yonghyeonsim/TIL/tree/master/CSS)
 ### DataBase
