@@ -1,4 +1,4 @@
-# DynamoDB in node.js
+# DynamoDB
 
 ### Query
 
@@ -58,7 +58,9 @@ requestId: '2bccf83a-9af8-4f29-ba7c-d28e20ff0d30'
 
 - 간단하게 설명하면, 같은 파티션 키 값에 다른 정렬 키
 
-![https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png)
+![]([https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/images/LSI_01.png))
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae83efa7-17c0-4642-ac78-7cb4f2dd904b/Untitled.png)
 
 - DynamoDB는 파티션 키 값이 동일한 모든 항목을 연속적으로 저장합니다
 - 위 예에서는 특정 `ForumName` 에 의해 `query` 작업으로 해당 포럼의 모든 스레드를 즉시 찾을 수 있습니다
@@ -95,3 +97,70 @@ KeySchema=[
 ```
 
 - 기본 키가 해시방식이기 때문에 범위 연산을 지원하지 않고, 이것을 보완하기 위해 사용하는듯?
+
+## 핫 파티션
+
+- 테이블 기본 키의 파티셔 키 부분은 테이블의 데이터가 저장되는 논리적 파티션을 결정합니다
+- 이는 기본 물리적 파티션에도 영향을 줍니다
+- I/O 요청을 고르게 분산시키지 않는 파티션 키 설계는 ‘핫’파티션을 발생시킬 수 있으며, 이는 프로비저닝된 I/O용량을 비효율적으로 사용하게 되는 문제를 초래합니다
+
+- 테이블의 프로비저닝된 처리량의 최적 사용량은 개별 항목의 워크로드 패턴과 파티션 키 설계가 결정합니다
+    - 각 파티션 별로 I/O 작업량을 할당
+- 하나의 파티션에 작업이 자주 발생할 경우 전반적인 성능 저하를 야기하는 핫 파티션 문제가 발생할 수 있습니다
+
+# DynamoDB 쿼리 작업
+
+- dynamoDB에서 query작업은 기본 키 값을 기반으로 항목을 찾습니다
+- 파티션 키 속성의 이름과 해당 속성의 단일 값을 제공해야 합니다
+- query는 해당 파티션 키 값을 갖는 모든 항목을 반환합니다
+- 정렬 키 속성과 비교 연산자를 사용하여 검색 결과의 범위를 좁힐 수 있습니다
+
+## 쿼리에 대한 키 조건 표현식
+
+- `a = b, a < b, a <= b, a > b, a >= b`
+- `a BETWEEN b AND c` : a가 b보다 크거나 같고 c보다 작거나 같은 경우
+- `begins_with (a, substr)` : a 속성 값이 특정 하위 문자열로 시작하는 경우 true
+
+## node aws-sdk DynamoDB client 에서 예시
+
+```jsx
+const query = {
+    TableName: TABLE_NAME,
+    IndexName: USER_KEY_INDEX_NAME,
+    Limit: 1,
+    ScanIndexForward: false,
+    KeyConditionExpression: "userId = :userId",
+    ExpressionAttributeValues: {
+        ":userId": userId
+    },
+}
+```
+
+- 특정 파티션 키(userId)값을 갖는 항목을 모두 읽어옵니다
+
+```jsx
+const query = {
+    TableName: TABLE_NAME,
+    IndexName: USER_KEY_INDEX_NAME,
+    Limit: 1,
+    ScanIndexForward: false,
+    KeyConditionExpression: "userId = :userId and expiredAt < now and remainPoint > 0",
+    ExpressionAttributeValues: {
+        ":userId": userId
+    },
+}
+```
+
+- 파티션 키(userId)값을 가지면서도 expiredAt(정렬키) < now && remainPoint(정렬키) > 0, 인 값을 가져옵니다
+
+- 일정한 파티션 키 값을 갖는 항목들에 대해서는 DynamoDB가 정렬 키 값을 기준으로 순서를 정렬하여 모두 함께 저장합니다
+    - `Query` 작업을 할 때는 정렬된 순서대로 항목을 가져온 다음 `FilterExpression` 과 모든 `KeyConditionExpression` 을 사용해 항목을 처리합니다
+    - 클러이언트에게는 `Query` 결과만 다시 보내집니다
+    - 단일 `Query` 작업은 최대 1MB의 데이터를 가져올 수 있습니다
+- 기본적으로 조회 결과는 sort key를 기준으로 오름차순 정렬되어 조회됩니다
+    - 내림차순 정렬을 원한다면 `ScanIndexForward` 를 false로 하면 됩니다
+
+## 쿼리에 대한 필터 표현식
+
+- `Query` 결과를 한층 더 좁혀야 하는 경우 선택적으로 필터 표현식을 제공할 수 있습니다
+- 필터 표현식은 `Query` 완료 후 적용되기 때문에, 필터 표현식의 여부와 상관없이 `Query` 는 동일한 양의 읽기 용량을 사용합니다

@@ -1,3 +1,6 @@
+# resultMap
+
+
 # Collection
 1:N 관계에서 서브쿼리 형식으로 데이터를 조회해 준다.
 
