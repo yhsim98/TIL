@@ -1,27 +1,24 @@
 # Today I Learned
 필요할 때 찾아보기 좋게 
 배운 것들을 정리하는 repository 입니다.
+깃허브에 공부하면서 간단하게 정리하고 블로그에는 좀 다듬어서 올리고 있습니다.
+요즘은 노션도 사용합니다. 노션 좋네요
 
 [블로그](https://yhsim98.tistory.com/)
+[PS](https://github.com/yhsim98/PS-)
 
-## progress
-* 도커
-* CS 스터디(네트워크)
-* 클린코드
-* MSA
-* Node, typescript
-* [PS](https://github.com/yhsim98/PS-)
-
-## ToDo
-* TDD
-* effective java 3/E
-* 토비의 스프링
+## ToDoLIst
+* DDD - DDD 시작하기(ebook)
+* query DSL - 김영한 인프런
+* 스프링 프록시와 jpa
+* JPA 복습
+* DDD와 JPA, RDS를 이용한 포인트 서버 구축
+* effective java 3/E (보류)
 * 클린 아키텍쳐
-* k8s
+* 클린 코드 
+* docker compose, k8s
 * NoSQL
-* redis
-* kafka
-
+* Messaging Queue
 
 ## Done
 ### MD 
