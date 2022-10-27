@@ -29,3 +29,26 @@ JVM의 Heap 영역은 처음 설계될 때 다음의 2가지를 전제로 설계
 * Card Table에는 Old영역의 객체가 Young영역의 객체를 참조할 때 그에 관한 정보가 저장된다
 * Minor GC시 Card Table만 검사해도 GC대상인지 식별할 수 있다
 
+## 종류
+* Serial GC
+    * GC를 처리하는 쓰레드가 1개
+    * 다른 GC에 비해 stop-the-world가 길다
+    * Mark-Compact 알고리즘 사용
+        * mark-sweep-compact?
+        * old영역에서 살아있는 객체를 모은다
+* Parallel GC
+    * Java8의 default GC
+    * Young Generation의 GC을 멀티 쓰레드로 수행
+    * serial에 비해 stop-the-world 시간 감소
+* Parallel old GC
+    * Parallel GC 개선
+    * Old 에도 멀티스레드
+    * Mark-summary-compact 알고리즘 사용
+    * 이전 GC에서 살아있는 객체의 위차를 조사
+* CMS(Concurrent Mark Sweep) GC
+    * stop-the-world 시간을 줄이기 위해 고안됨
+    * compact 과정이 없음
+*  G1 GC
+    * Heap을 일정한 크기의 Region으로 나눔
+    * 전체 Heap이 아닌 Region단위로 탐색
+    * compact 진행
