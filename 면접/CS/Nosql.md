@@ -22,3 +22,5 @@
     - Availability
     - Partition Tolerance
     - 이 중에 2가지만 가질 수 있다
+
+
