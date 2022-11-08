@@ -1,0 +1,70 @@
+{
+    "DBName": "MySQL",
+    "DBInstanceIdentifier": "pl-managements",
+    "AllocatedStorage": 0,
+    "DBInstanceClass": "db.m5.large",
+    "Engine": "mysql",
+    "MasterUsername": "admin",
+    "MasterUserPassword": "password",
+    "DBSecurityGroups": [
+        ""
+    ],
+    "VpcSecurityGroupIds": [
+        "VpcSecurityGroupId"
+    ],
+    "AvailabilityZone": "ap-northeast-2a",
+    "DBSubnetGroupName": "",
+    "PreferredMaintenanceWindow": "Mon:13:00–Mon:21:00",
+    "DBParameterGroupName": "",
+    "BackupRetentionPeriod": 0,
+    "PreferredBackupWindow": "",
+    "Port": 3306,
+    "MultiAZ": true,
+    "EngineVersion": "8.028",
+    "AutoMinorVersionUpgrade": true,
+    "LicenseModel": "",
+    "Iops": 0,
+    "OptionGroupName": "",
+    "CharacterSetName": "",
+    "NcharCharacterSetName": "",
+    "PubliclyAccessible": true,
+    "Tags": [
+        {
+            "Key": "",
+            "Value": ""
+        }
+    ],
+    "DBClusterIdentifier": "",
+    "StorageType": "",
+    "TdeCredentialArn": "",
+    "TdeCredentialPassword": "",
+    "StorageEncrypted": true,
+    "KmsKeyId": "",
+    "Domain": "",
+    "CopyTagsToSnapshot": true,
+    "MonitoringInterval": 0,
+    "MonitoringRoleArn": "",
+    "DomainIAMRoleName": "",
+    "PromotionTier": 0,
+    "Timezone": "",
+    "EnableIAMDatabaseAuthentication": true,
+    "EnablePerformanceInsights": true,
+    "PerformanceInsightsKMSKeyId": "",
+    "PerformanceInsightsRetentionPeriod": 0,
+    "EnableCloudwatchLogsExports": [
+        ""
+    ],
+    "ProcessorFeatures": [
+        {
+            "Name": "",
+            "Value": ""
+        }
+    ],
+    "DeletionProtection": true,
+    "MaxAllocatedStorage": 0,
+    "EnableCustomerOwnedIp": true,
+    "CustomIamInstanceProfile": "",
+    "BackupTarget": "",
+    "NetworkType": "",
+    "StorageThroughput": 0
+}

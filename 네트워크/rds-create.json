@@ -1,0 +1,70 @@
+{
+    "AvailabilityZones": [
+        ""
+    ],
+    "BackupRetentionPeriod": 0,
+    "CharacterSetName": "",
+    "DatabaseName": "",
+    "DBClusterIdentifier": "",
+    "DBClusterParameterGroupName": "",
+    "VpcSecurityGroupIds": [
+        ""
+    ],
+    "DBSubnetGroupName": "",
+    "Engine": "",
+    "EngineVersion": "",
+    "Port": 0,
+    "MasterUsername": "",
+    "MasterUserPassword": "",
+    "OptionGroupName": "",
+    "PreferredBackupWindow": "",
+    "PreferredMaintenanceWindow": "",
+    "ReplicationSourceIdentifier": "",
+    "Tags": [
+        {
+            "Key": "",
+            "Value": ""
+        }
+    ],
+    "StorageEncrypted": true,
+    "KmsKeyId": "",
+    "PreSignedUrl": "",
+    "EnableIAMDatabaseAuthentication": true,
+    "BacktrackWindow": 0,
+    "EnableCloudwatchLogsExports": [
+        ""
+    ],
+    "EngineMode": "",
+    "ScalingConfiguration": {
+        "MinCapacity": 0,
+        "MaxCapacity": 0,
+        "AutoPause": true,
+        "SecondsUntilAutoPause": 0,
+        "TimeoutAction": "",
+        "SecondsBeforeTimeout": 0
+    },
+    "DeletionProtection": true,
+    "GlobalClusterIdentifier": "",
+    "EnableHttpEndpoint": true,
+    "CopyTagsToSnapshot": true,
+    "Domain": "",
+    "DomainIAMRoleName": "",
+    "EnableGlobalWriteForwarding": true,
+    "DBClusterInstanceClass": "",
+    "AllocatedStorage": 0,
+    "StorageType": "",
+    "Iops": 0,
+    "PubliclyAccessible": true,
+    "AutoMinorVersionUpgrade": true,
+    "MonitoringInterval": 0,
+    "MonitoringRoleArn": "",
+    "EnablePerformanceInsights": true,
+    "PerformanceInsightsKMSKeyId": "",
+    "PerformanceInsightsRetentionPeriod": 0,
+    "ServerlessV2ScalingConfiguration": {
+        "MinCapacity": 0.0,
+        "MaxCapacity": 0.0
+    },
+    "NetworkType": "",
+    "SourceRegion": ""
+}
