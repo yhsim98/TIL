@@ -19,6 +19,9 @@
 * docker compose, k8s
 * NoSQL
 * Messaging Queue
+* 스프링
+    * CGLIB
+    * 프록시
 
 ## Done
 ### MD 
